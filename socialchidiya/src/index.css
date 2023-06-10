@@ -1,3 +1,48 @@
+:root {
+  --color-primary: #0066CC;
+  --color-secondary: #FFC107;
+  --color-tertiary: #00C853;
+  --color-neutral: #757575;
+  --color-accent: #EC407A;
+  --color-highlight: #9C27B0;
+  --color-base:rgb(255, 240, 182);
+}
+
+.pink{
+  color: var(--color-accent);
+}
+
+.green{
+  color: var(--color-tertiary);
+}
+
+.button {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  font-weight: bolder;
+}
+
+.button:hover{
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.button:active{
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+.header {
+  background-color: var(--color-secondary);
+  color: var(--color-neutral);
+}
+
+.accent-element {
+  color: var(--color-accent);
+}
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

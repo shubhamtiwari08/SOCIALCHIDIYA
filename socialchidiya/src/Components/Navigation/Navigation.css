@@ -1,0 +1,46 @@
+*{
+    background-color: var(--color-base);
+}
+
+.navigation-links{
+    height: 80vh;
+    width: 24rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.navigation-links ul{
+    list-style: none;
+    line-height: 3rem;
+    height: 15rem;
+    width: 7rem;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.navigation-links ul li:hover{
+    font-weight: bold;
+    color: var(--color-secondary);
+    cursor: pointer;
+}
+
+.navigation-links button{
+    padding: 0.7rem;
+    border: none;
+    box-shadow: 0px 0px 8px 1px gray;
+}
+
+.profile-link{
+    position: relative;
+    top: 0rem;
+    left: 4rem;
+    }
+
+.profile-name{
+    position: absolute;
+    top: 10px;
+    left: 5rem;
+    color: var(--color-primary);
+}
