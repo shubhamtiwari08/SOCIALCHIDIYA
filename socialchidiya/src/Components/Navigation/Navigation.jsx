@@ -18,15 +18,17 @@ function Navigation() {
             <li><FontAwesomeIcon icon={faUser} style={{color:"blue"}}/> Profile</li>
          </ul>
          <button className='button'>Create Post</button>
-      </div>
-      <div className="profile-link">
+         <div className="profile-link">
          <ProfileCircle/>
          <div className="profile-name">
-         <h5 >shubham tiwari</h5>
-         <p>@shubhamtiwari</p>
+            <h5 >shubham tiwari</h5>
+            <p>@shubhamtiwari</p>
+
          </div>
          
       </div>
+      </div>
+    
     </div>
   )
 }

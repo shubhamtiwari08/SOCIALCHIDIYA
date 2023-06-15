@@ -1,0 +1,27 @@
+.follow-main-container{
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.303);
+    padding: 1rem;
+}
+
+.search-follow input{
+    width: 25rem;
+    height: 3rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid blue;
+    background-color: rgba(251, 211, 35, 0.538);
+}
+
+
+
+.followers{
+    width: 25rem;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.followers span{
+    margin: 2rem; 
+    font-weight: bold;
+}
+

@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+.create-post-main-container{
+    margin: 5px;
+    width: 57rem;
+    height: 15rem;
+    border: 1px solid black;
+    
+}
+
+.create-post-main-container input{
+    width: 50rem;
+    height: 9rem;
+}
+
+.add-btns{
+    display: flex;
+    height: 3rem;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-btns{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+}
+
+.post-btn{
+    padding: 0.5rem;
+    border: none;
+    box-shadow: 0 0 5px 1px gray;
+}
+
+.input-box{
+    display: flex;
+    padding: 1rem;
+    gap: 0.5rem;
+}
+
+
+
