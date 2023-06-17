@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Navigation.css'
 import ProfileCircle from './Profile/ProfileCircle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faCompass, faHome, faUser } from '@fortawesome/free-solid-svg-icons'
+import { AuthContext } from '../../Context/AuthContext/AuthContext';
 
 function Navigation() {
+
+   const{userProfile} = useContext(AuthContext)
+
   return (
     <div>
     <div className="logo green hero-word-two">

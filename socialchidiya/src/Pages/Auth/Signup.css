@@ -34,6 +34,7 @@ body {
 .signUp-container 
   input[type="text"],
   input[type="email"],
+  input[type='username'],
   input[type="password"] {
     padding: 5px;
     border: 1px solid yellow;
