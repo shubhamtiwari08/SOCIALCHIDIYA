@@ -1,0 +1,10 @@
+.filter-btns{
+    width: 50rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.filter-btns button{
+    padding: 0.5rem;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import './Home.css'
+import './Explore.css'
 import Navigation from '../../Components/Navigation/Navigation'
 import Suggestions from '../../Components/Suggestions/Suggestions'
 import CreatePost from '../../Components/CreatePost/CreatePost'
@@ -8,19 +8,21 @@ import { faFilter, faFilterCircleDollar, faFilterCircleXmark } from '@fortawesom
 import FeedPost from '../../Components/FeedPost/FeedPost'
 import ProfileCard from '../../Components/ProfileCard/ProfileCard'
 
-function Home() {
+function Explore() {
   return (
     <div className='main-container-home'>
        <section>
           <Navigation/>
        </section>
        <main>
-       <CreatePost/>
-       <div className='filter-btn'>
-       <h2>Latest Posts</h2> <FontAwesomeIcon icon={faFilter} color='blue'/>
+       <h2>Explore</h2>
+       <div className="filter-btns">
+         <button>For You</button>
+         <button>Trending</button>
+         <button>Technology</button>
+         <button>Sports</button>
+         <button>News</button>
        </div>
-       <FeedPost/>
-       <FeedPost/>
        <FeedPost/>
        </main>
        <section>
@@ -30,4 +32,4 @@ function Home() {
   )
 }
 
-export default Home    
+export default Explore    

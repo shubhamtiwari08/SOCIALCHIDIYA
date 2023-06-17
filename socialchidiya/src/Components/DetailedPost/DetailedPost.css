@@ -1,0 +1,40 @@
+.profile-info{
+    display: flex;
+}
+
+.profile{
+  margin-left: 0.5rem;
+}
+
+.main-content{
+    padding: 0.5rem;
+    font-size: xx-large;
+}
+
+.dateandtime{
+    display: flex;
+    width: 10rem;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.post-profile-container h4{
+    padding: 1rem;
+}
+
+.comment{
+    display: flex;
+    padding: 1rem;
+    justify-content:space-between;
+}
+
+.action-btn-post{
+    padding: 1rem;
+}
+
+
+.comment input{
+    width: 50rem;
+    border: none;
+    padding: 0.5rem;
+}

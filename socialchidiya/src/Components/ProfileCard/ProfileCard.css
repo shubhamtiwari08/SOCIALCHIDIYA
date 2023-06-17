@@ -1,0 +1,23 @@
+.Reach-count{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr ;
+}
+
+.profileCard-main-container{
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.profileCard-main-container button{
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.profile-img{
+    position: relative;
+    left: 25rem;
+    margin: 0.8rem;
+}
+

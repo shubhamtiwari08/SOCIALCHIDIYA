@@ -1,33 +1,29 @@
 import React from 'react'
-import './Home.css'
+import './Post.css'
 import Navigation from '../../Components/Navigation/Navigation'
 import Suggestions from '../../Components/Suggestions/Suggestions'
 import CreatePost from '../../Components/CreatePost/CreatePost'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilter, faFilterCircleDollar, faFilterCircleXmark } from '@fortawesome/free-solid-svg-icons'
+import { faFilter, faFilterCircleDollar, faFilterCirclXmark } from '@fortawesome/free-solid-svg-icons'
 import FeedPost from '../../Components/FeedPost/FeedPost'
 import ProfileCard from '../../Components/ProfileCard/ProfileCard'
+import DetailedPost from '../../Components/DetailedPost/DetailedPost'
 
-function Home() {
+function Post() {
   return (
     <div className='main-container-home'>
        <section>
           <Navigation/>
        </section>
        <main>
-       <CreatePost/>
-       <div className='filter-btn'>
-       <h2>Latest Posts</h2> <FontAwesomeIcon icon={faFilter} color='blue'/>
-       </div>
-       <FeedPost/>
-       <FeedPost/>
-       <FeedPost/>
+       <h2> Post</h2>
+       <DetailedPost/>
        </main>
        <section>
            <Suggestions/>
        </section>
-    </div>
-  )
+   </div>
+   )
 }
 
-export default Home    
+export default Post    
