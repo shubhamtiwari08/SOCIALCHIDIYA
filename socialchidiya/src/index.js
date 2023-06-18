@@ -7,6 +7,7 @@ import { makeServer } from "./server";
 // import your fontawesome library
 import '../src/Components/FontawesomIcons/FonteawesomeIcons';
 import AuthProvider from './Context/AuthContext/AuthContext';
+import UserProvider from './Context/userContext/userContext';
 
 // Call make Server
 makeServer();
@@ -17,7 +18,9 @@ root.render(
   <React.StrictMode>
   <BrowserRouter>
   <AuthProvider>
+  <UserProvider>
     <App />
+  </UserProvider>
   </AuthProvider>
   </BrowserRouter>
   </React.StrictMode>

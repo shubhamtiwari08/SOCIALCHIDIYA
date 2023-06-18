@@ -8,6 +8,9 @@ import { AuthContext } from '../../Context/AuthContext/AuthContext';
 function Navigation() {
 
    const{userProfile} = useContext(AuthContext)
+   console.log(userProfile)
+
+   const {username,firstName,lastName} = userProfile
 
   return (
     <div>
@@ -25,8 +28,8 @@ function Navigation() {
          <div className="profile-link">
          <ProfileCircle/>
          <div className="profile-name">
-            <h5 >shubham tiwari</h5>
-            <p>@shubhamtiwari</p>
+            <h5 >{firstName +" "+ lastName}</h5>
+            <p>@{username}</p>
 
          </div>
          

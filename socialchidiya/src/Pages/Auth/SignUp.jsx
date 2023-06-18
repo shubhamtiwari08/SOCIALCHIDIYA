@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import './Signup.css'
+import { useNavigate } from 'react-router'
 
 function SignUp() {
 
+  const Navigate = useNavigate()
   const [user,setUser] = useState({
     fullName:"",
-    userName:"",
+    username:"",
     email:"",
     password:"",
     cPassword:"",
@@ -17,7 +19,28 @@ function SignUp() {
         setUser({...user,[name]:value})
   }
 
-  console.log(user)
+  const handleSignUp = (e)=>{
+        e.preventDefault()
+        signUpUser()
+  }
+
+  const signUpUser = async ()=>{
+    try {
+      const response = await fetch('/api/auth/signup',{
+        method:"POST",
+        body:JSON.stringify(user)
+      })
+      const data = await response.json()
+      if(response.status === 201){
+          Navigate('/login')
+      }else{
+        console.log(data?.errors[0])
+        console.log("not working")
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   
 
@@ -26,12 +49,12 @@ function SignUp() {
     <div className='signUp-container'>
     <h2>The social Chidiya</h2>
     <h2>Sign Up</h2>
-    <form >
+    <form onSubmit={handleSignUp}>
   <label for="fullname">Full Name:</label><br/>
-  <input type="text" id="fullname" name="fullName" value={user.fullName} onChange={handleInput} required/><br/>
+  <input type="text" id="fullName" name="fullName" value={user.fullName} onChange={handleInput} required/><br/>
 
   <label for="username">Username:</label><br/>
-  <input type="text" id="username" name="userName" value={user.userName} onChange={handleInput} required/><br/>
+  <input type="text" id="username" name="username" value={user.username} onChange={handleInput} required/><br/>
 
   <label for="email">Email:</label><br/>
   <input type="email" id="email" name="email" value={user.email} onChange={handleInput} required/><br/>
