@@ -4,11 +4,12 @@ import ProfileCircle from './Profile/ProfileCircle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faCompass, faHome, faUser } from '@fortawesome/free-solid-svg-icons'
 import { AuthContext } from '../../Context/AuthContext/AuthContext';
+import { useNavigate } from 'react-router';
 
 function Navigation() {
 
    const{userProfile} = useContext(AuthContext)
-   console.log(userProfile)
+   const Navigate = useNavigate()
 
    const {username,firstName,lastName} = userProfile
 
@@ -27,7 +28,7 @@ function Navigation() {
          <button className='button'>Create Post</button>
          <div className="profile-link">
          <ProfileCircle/>
-         <div className="profile-name">
+         <div className="profile-name" onClick={()=>Navigate("/profile")}>
             <h5 >{firstName +" "+ lastName}</h5>
             <p>@{username}</p>
 

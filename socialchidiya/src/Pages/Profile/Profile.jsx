@@ -16,9 +16,7 @@ function Profile() {
        </section>
        <main>
        <ProfileCard/>
-       <FeedPost/>
-       <FeedPost/>
-       <FeedPost/>
+       
        </main>
        <section>
            <Suggestions/>

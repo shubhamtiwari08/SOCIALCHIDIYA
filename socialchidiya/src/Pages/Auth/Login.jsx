@@ -22,7 +22,7 @@ function Login() {
 
   console.log(loginData)
 
-const userLogin = async()=>{
+const userLogin = async(loginData)=>{
   const response = await fetch("/api/auth/login",{
     method:"POST",
     body:JSON.stringify(loginData)
@@ -42,6 +42,14 @@ const handleSubmit=(e)=>{
   userLogin()
 }
 
+const handleGuest = () =>{
+  const defaultData = {
+    username:"adarshbalika",
+    password:"adarshBalika123"
+  }
+  userLogin(defaultData)
+}
+
   return (
 <div className='login-main-container'>
 <h1>The social chidiya</h1>
@@ -55,6 +63,7 @@ const handleSubmit=(e)=>{
       <input type="password" id="password" name="password" value={loginData.password} onChange={handleInput} required/><br/>
 
       <input type="submit" value="Log In"/>
+      <button onClick={handleGuest}>guest login</button>
     </form>
     <div class="create-account">
       <a href="/signup">Create New Account</a>

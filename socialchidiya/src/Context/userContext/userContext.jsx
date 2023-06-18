@@ -5,8 +5,9 @@ export const userContext = createContext()
 
 function UserProvider({children}) {
 
-
+const [mainUser,setMainUser]=useState({})
 const [socialUsers,setSocialUsers]=useState([])
+
 const getUser = async()=>{
     try {
     const response = await fetch("/api/users")
@@ -19,13 +20,19 @@ console.log(data)
 
 }
 
+const getMainUser = async(id)=>{
+    const response = await fetch(`/api/users/${id}`)
+    const data = await response.json()
+    setMainUser(data.user)
+}
+
 useEffect(()=>{
     getUser()
 },[])
 
 
   return (
-     <userContext.Provider value={{socialUsers}}>
+     <userContext.Provider value={{socialUsers,getMainUser,mainUser}}>
       {children}
      </userContext.Provider>
   )

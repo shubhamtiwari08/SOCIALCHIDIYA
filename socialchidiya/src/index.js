@@ -8,6 +8,7 @@ import { makeServer } from "./server";
 import '../src/Components/FontawesomIcons/FonteawesomeIcons';
 import AuthProvider from './Context/AuthContext/AuthContext';
 import UserProvider from './Context/userContext/userContext';
+import PostProvider from './Context/PostContext/PostProvider';
 
 // Call make Server
 makeServer();
@@ -19,7 +20,9 @@ root.render(
   <BrowserRouter>
   <AuthProvider>
   <UserProvider>
+  <PostProvider>
     <App />
+  </PostProvider>
   </UserProvider>
   </AuthProvider>
   </BrowserRouter>
