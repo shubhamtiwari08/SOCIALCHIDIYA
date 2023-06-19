@@ -31,8 +31,8 @@ function ProfileCard() {
     <p>{website}</p>
     <div className="Reach-count">
        <p>0</p>
-       <p>{following.length}</p>
-       <p>{followers.length}</p>
+       <p>{following?.length}</p>
+       <p>{followers?.length}</p>
        <p>Posts</p>
        <p>following</p>
       <p>followers</p>

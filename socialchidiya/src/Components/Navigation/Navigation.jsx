@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faCompass, faHome, faUser } from '@fortawesome/free-solid-svg-icons'
 import { AuthContext } from '../../Context/AuthContext/AuthContext';
 import { useNavigate } from 'react-router';
+import {Link,NavLink} from 'react-router-dom'
+
 
 function Navigation() {
 

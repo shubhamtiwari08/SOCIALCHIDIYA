@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import './Login.css'
 import { AuthContext } from '../../Context/AuthContext/AuthContext'
 import { useNavigate } from 'react-router'
+import { NavLink } from 'react-router-dom'
 
 function Login() {
 
@@ -66,7 +67,7 @@ const handleGuest = () =>{
       <button onClick={handleGuest}>guest login</button>
     </form>
     <div class="create-account">
-      <a href="/signup">Create New Account</a>
+    <NavLink to='/signup'>create new account</NavLink>
     </div>
   </div>
 </div>

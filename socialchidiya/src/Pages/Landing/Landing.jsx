@@ -1,7 +1,13 @@
 import React from 'react'
 import './landing.css'
+import { useNavigate } from 'react-router'
+import { NavLink } from 'react-router-dom'
 
 function Landing() {
+
+  const Navigate = useNavigate()
+
+
   return (
     <div className='landing-main-container'>
       <div className="content-main-box">
@@ -15,8 +21,8 @@ function Landing() {
          <span className='hero-word'> SOCIAL CHIDIYA!"</span>
          </div>
          <div className="join-box">
-        <button className="join-btn button">JOIN NOW</button>
-          <p>already have an account ? Login </p>
+        <button className="join-btn button" onClick={()=>Navigate('/signup')}>JOIN NOW</button>
+          <p>already have an account ? <NavLink to='/login'>Login</NavLink> </p>
          </div>
        </div>
        <div className="image-container">
