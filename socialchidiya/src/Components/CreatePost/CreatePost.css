@@ -44,5 +44,10 @@
     gap: 0.5rem;
 }
 
+textarea{
+    height: 8rem;
+    background-color: rgba(226, 179, 11, 0.566);
+}
+
 
 

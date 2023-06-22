@@ -1,17 +1,40 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import './CreatePost.css'
 import ProfileCircle from '../Navigation/Profile/ProfileCircle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGift, faImage, faSmile } from '@fortawesome/free-solid-svg-icons'
+import { postContext } from '../../Context/PostContext/PostProvider'
 
 
 function CreatePost() {
+
+  const [newPostData,setNewPostData] = useState({
+    content:"",
+    mediaURL:"",
+    category:""
+  })
+  const {createPost} = useContext(postContext)
+
+  const handleInput = (e)=>{
+    const name = e.target.name
+    const value = e.target.value
+    setNewPostData({...newPostData,[name]:value})
+    console.log(newPostData)
+  }
+
+  const submitNewPost = (e)=>{
+     e.preventDefault()
+     createPost(newPostData)
+  }
+
+
+
   return (
     <div className='create-post-main-container'>
+    <form onSubmit={submitNewPost}>
      <div className="input-box">
      <ProfileCircle/>
-    <input type="text" placeholder='write something here'/>
-      
+      <textarea name="content" id="createPost" cols="20" rows="5" onChange={handleInput} />
      </div>    
     <div className="btns">
     <div className="add-btns">
@@ -21,11 +44,11 @@ function CreatePost() {
     <FontAwesomeIcon icon={faGift} style={{ color: 'blue' }} />
     </div>
     
-    <button className='button post-btn'>Post</button>
+    <button type='submit' className='button post-btn'>Post</button>
     </div>
     
     </div>
-    
+    </form>
     </div>
   )
 }

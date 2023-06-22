@@ -29,13 +29,13 @@ const userLogin = async(loginData)=>{
     body:JSON.stringify(loginData)
   })
   const data = await response.json()
-  console.log(data)
+  
   if(response.status === 200){
     setUserProfile(data.foundUser)
+    localStorage.setItem("Token", data.encodedToken)
     setIsLogged(!isLogged)
     Navigate("/home")
   }
-  
 }
 
 const handleSubmit=(e)=>{

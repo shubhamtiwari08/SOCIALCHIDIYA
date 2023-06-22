@@ -1,5 +1,7 @@
 .profile-info{
     display: flex;
+    margin-top: 1rem;
+    align-items: center;
 }
 
 .profile{
@@ -19,7 +21,7 @@
 }
 
 .post-profile-container h4{
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .comment{

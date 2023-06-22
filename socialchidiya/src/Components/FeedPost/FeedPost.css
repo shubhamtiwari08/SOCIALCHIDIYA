@@ -1,6 +1,7 @@
 .feed-post-main-container{
     display: grid;
-    grid-template-columns: 0.1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr ;
     padding: 1rem;
     border: 1px solid  black;
     margin: 5px;
@@ -24,3 +25,4 @@
     display: flex;
     justify-content: space-between;
 }
+

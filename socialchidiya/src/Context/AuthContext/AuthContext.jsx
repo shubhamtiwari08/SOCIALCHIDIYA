@@ -6,6 +6,8 @@ function AuthProvider({children}) {
     const [isLogged,setIsLogged] = useState(false)
     const [userProfile,setUserProfile] = useState({})
 
+    
+
   return (
      <AuthContext.Provider value={{isLogged,setIsLogged,userProfile,setUserProfile}}>
           {children}

@@ -1,0 +1,12 @@
+.comment-profile{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+/* profile-info is defined in detailed post css */
+
+.comment-content{
+    padding: 0.5rem 1rem 1rem 3.7rem;
+    width: 100%;
+}

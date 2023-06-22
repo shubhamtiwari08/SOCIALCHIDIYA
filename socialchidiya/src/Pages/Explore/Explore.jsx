@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Explore.css'
 import Navigation from '../../Components/Navigation/Navigation'
 import Suggestions from '../../Components/Suggestions/Suggestions'
-import CreatePost from '../../Components/CreatePost/CreatePost'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilter, faFilterCircleDollar, faFilterCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import FeedPost from '../../Components/FeedPost/FeedPost'
-import ProfileCard from '../../Components/ProfileCard/ProfileCard'
+import { postContext } from '../../Context/PostContext/PostProvider'
+import { userContext } from '../../Context/userContext/userContext'
+import { exploreFilters } from '../../Reducers/postReducerUtils'
+
 
 function Explore() {
+
+
+  const {postState,postDispatch} = useContext(postContext)
+  const {userState} = useContext(userContext)
+  const explorePost = postState.posts.filter(post => post.username !== userState?.authUser?.username ) 
+
+  const exploreSort = postState.exploreSort
+  const filteredPost = exploreFilters(explorePost,exploreSort)
+
+  console.log(filteredPost)
+
+  console.log(exploreSort, "sorrrrrrrrrrt")
+
   return (
     <div className='main-container-home'>
        <section>
@@ -17,13 +30,13 @@ function Explore() {
        <main>
        <h2>Explore</h2>
        <div className="filter-btns">
-         <button>For You</button>
-         <button>Trending</button>
-         <button>Technology</button>
-         <button>Sports</button>
-         <button>News</button>
+         <button onClick={()=>postDispatch({type:"EXPLORE_FILTER",payload:"all"})}>For You</button>
+         <button onClick={()=>postDispatch({type:"EXPLORE_FILTER",payload:"cooking"})}>Cooking</button>
+         <button onClick={()=>postDispatch({type:"EXPLORE_FILTER",payload:"tech"})}>Technology</button>
+         <button onClick={()=>postDispatch({type:"EXPLORE_FILTER",payload:"inspiration"})}>Inspiring</button>
+         <button onClick={()=>postDispatch({type:"EXPLORE_FILTER",payload:"news"})}>News</button>
        </div>
-       <FeedPost/>
+       {filteredPost.map(post=> <FeedPost feedData={post}/>)}
        </main>
        <section>
            <Suggestions/>

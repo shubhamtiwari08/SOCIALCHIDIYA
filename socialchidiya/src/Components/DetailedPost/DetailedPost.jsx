@@ -1,32 +1,50 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import './DetailedPost.css'
 import Profile from '../../Pages/Profile/Profile'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark, faComment, faHeart, faShare } from '@fortawesome/free-solid-svg-icons'
 import ProfileCircle from '../Navigation/Profile/ProfileCircle'
+import PostProvider, { postContext } from '../../Context/PostContext/PostProvider'
+import { useParams } from 'react-router'
+import Comment from '../Comments/Comment'
 
 function DetailedPost() {
+
+   const {getDetailedPost,singlePost} = useContext(postContext)
+   const {singlePostId} = useParams()
+   // const {_id,content,mediaURL,likes:{ likeCount,likedBy,dislikedBy},username,createdAt} = singlePost
+
+   const date = singlePost?.createdAt?.slice(0,10)
+   const time = singlePost?.createdAt?.slice(11,16)
+   const comments = singlePost?.comments
+
+   console.log(singlePost)
+
+
+
+   
+
   return (
      <div>
      <div className='post-profile-container'>
      <div className='profile-info'>
      <ProfileCircle/>
      <div className='profile'>
-     <h4>shubham tiwari</h4>
-     <p>@shubhamtiwari</p>
+     <h4>{singlePost?.username}</h4>
+     <p>@{singlePost?.username}</p>
      </div>
      </div>
      <div className="main-content">
       <p>
-         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas eligendi id error aspernatur mollitia nam aperiam fugit quasi! Dicta doloremque suscipit repellendus aspernatur aliquam eius id similique, voluptas optio veritatis?
+       {singlePost?.content}
       </p>
       </div>
       <div className="dateandtime">
-         <p>date</p>
-         <p>time</p>
+         <p>{date}</p>
+         <p>{time}AM</p>
       </div>
       <hr />
-      <h4>0 likes</h4>
+      <h4>{singlePost?.likes?.likeCount} likes</h4>
       <hr />
       </div>
       <div className="action-btns action-btn-post">
@@ -42,6 +60,9 @@ function DetailedPost() {
      <button className='button post-btn' > Post </button>
    </div>
    <hr />
+   {
+   comments?.map(comment => <Comment commentData={comment} postUsername={singlePost?.username}/>)
+   }
      </div>
   )
 }

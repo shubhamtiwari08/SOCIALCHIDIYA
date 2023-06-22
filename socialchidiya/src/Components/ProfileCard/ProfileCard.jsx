@@ -2,21 +2,18 @@ import React, { useContext, useEffect } from 'react'
 import './ProfileCard.css'
 import { AuthContext } from '../../Context/AuthContext/AuthContext'
 import { userContext } from '../../Context/userContext/userContext'
+import { postContext } from '../../Context/PostContext/PostProvider'
+import FeedPost from '../FeedPost/FeedPost'
 
 function ProfileCard() {
 
-  const{userProfile} = useContext(AuthContext)
-  const {getMainUser,mainUser}=useContext(userContext)
-   console.log(mainUser)
+  const {postState} = useContext(postContext)
+  const {userState}=useContext(userContext)
+  const {bio,followers,following,firstName,lastName,username,website}= userState.authUser
 
-   const {_id} = userProfile
-   const {bio,followers,following,firstName,lastName,username,website}=mainUser
+  
 
-  useEffect(()=>{
-    getMainUser(_id)
-  },[])
-
-
+  const authUserPost = postState.posts.filter(post => post.username === username)
 
 
   return (
@@ -35,10 +32,9 @@ function ProfileCard() {
        <p>{followers?.length}</p>
        <p>Posts</p>
        <p>following</p>
-      <p>followers</p>
-      
-      
+      <p>followers</p>  
     </div>
+      {authUserPost.map(post => <FeedPost feedData={post}/>)}
     </div>
   )
 }

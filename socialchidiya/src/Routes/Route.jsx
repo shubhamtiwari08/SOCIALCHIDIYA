@@ -23,7 +23,7 @@ function Routing() {
        <Route path='/bookmark' element={<Bookmark/>}/>
        <Route path='/signup' element={<SignUp/>}/>
        <Route path='/Login' element={<Login/>}/>
-       <Route path='/post' element={<Post/>}/>
+       <Route path='/home/:singlePostId' element={<Post/>}/>
        <Route path='/mockman' element={<MockAPI/>}/>
 
        

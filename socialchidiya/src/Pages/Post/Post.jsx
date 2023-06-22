@@ -16,7 +16,7 @@ function Post() {
           <Navigation/>
        </section>
        <main>
-       <h2> Post</h2>
+       <h2> Post </h2>
        <DetailedPost/>
        </main>
        <section>

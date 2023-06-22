@@ -21,3 +21,11 @@ main{
     justify-content: space-between;
     padding: 1rem;
 }
+
+.sort-btn{
+    padding: 0.2rem;
+    margin: 0.2rem;
+    cursor: pointer;
+    background-color: rgba(252, 205, 36, 0.724);
+    border: 1px solid black;
+}

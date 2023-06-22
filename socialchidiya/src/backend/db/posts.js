@@ -12,6 +12,7 @@ export const posts = [
     _id: "xhzTkUi2Nt",
     content: "Nice Weather Today!!",
     mediaURL: "",
+    category:"Nature",
     likes: {
       likeCount: 5,
       likedBy: [],
@@ -35,6 +36,7 @@ export const posts = [
   {
     _id: "siFFxfYI1s",
     content: "Started my Baking journey! Look what I made.",
+    category:"cooking",
     mediaURL:
       "https://res.cloudinary.com/dtrjdcrme/video/upload/v1652188886/upload-socialmedia/oikev6eomsgahnvxcijd.mp4",
     likes: {
@@ -50,6 +52,7 @@ export const posts = [
   {
     _id: "3XHvLP1fg",
     content: "I made this cake for my friend's birthday. Check it out",
+    category:"cooking",
     mediaURL:
       "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652188492/upload-socialmedia/cakegif_q11mfm.webp",
     likes: {
@@ -76,6 +79,7 @@ export const posts = [
     _id: "MTYtVhecCj",
     content:
       "You are never too old to set another goal or to dream a new dream.",
+    category:"inspiration",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -90,6 +94,7 @@ export const posts = [
   {
     _id: "3XHvLP9kC",
     content: "Yayy! Its my Birthday Today. Made this cake for myself!",
+    category:"cooking",
     mediaURL:
       "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014336/ecommerce/chocolatecake4.webp",
     likes: {
@@ -125,6 +130,7 @@ export const posts = [
     _id: "tHaThLyFQh",
     content:
       "Life has got all those twists and turns. You’ve got to hold on tight and off you go.",
+    category:"inpiring",
     mediaURL: "",
     likes: {
       likeCount: 2,
@@ -139,6 +145,7 @@ export const posts = [
   {
     _id: "G-Gi3lSZP9",
     content: "When you have a dream, you’ve got to grab it and never let go.",
+    category:"inspiring",
     mediaURL: "",
     likes: {
       likeCount: 2,
@@ -154,6 +161,7 @@ export const posts = [
     _id: "GeMUAdi9mh",
     content:
       "No matter what people tell you, words and ideas can change the world.",
+    category:"inspiring",
     mediaURL: "",
     likes: {
       likeCount: 2,
@@ -168,6 +176,7 @@ export const posts = [
   {
     _id: "IyUlYXTrzZ",
     content: "Who's up for Pineapple Pastry?",
+    category:"cooking",
     mediaURL:
       "https://res.cloudinary.com/dtrjdcrme/image/upload/v1647014828/ecommerce/pineapplemuffin1.webp",
     likes: {
@@ -194,6 +203,7 @@ export const posts = [
     _id: "Ie92xOSVeU",
     content:
       "Check out this amazing video from BakinZone https://bakinzone.netlify.app/videos/qtlhdIfojmc",
+    category:"cooking",
     mediaURL: "",
     likes: {
       likeCount: 1,
@@ -218,6 +228,7 @@ export const posts = [
   {
     _id: "xhzTkUyfNt",
     content: "Believe in yourself! Rest all will fall in place.",
+    category:"inspiration",
     mediaURL: "",
     likes: {
       likeCount: 2,
@@ -243,6 +254,7 @@ export const posts = [
     _id: "CCmJpDnnQQ",
     content:
       "You can get everything in life you want if you will just help enough other people get what they want.",
+    category:"inspiration",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -259,6 +271,7 @@ export const posts = [
     _id: "Z_TZT_3EAw",
     content:
       "If you believe something needs to exist, if it's something you want to use yourself, don't let anyone ever stop you from doing it.",
+    category:"inspiration",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -273,7 +286,8 @@ export const posts = [
 
   {
     _id: "e-knMEsoLq",
-    content: "More is lost by indecision than wrong decision.",
+    content: "Javascript is cool.",
+    category:"tech",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -289,7 +303,8 @@ export const posts = [
   {
     _id: "VY14RsXC7G",
     content:
-      "The reason we struggle with insecurity is because we compare our behind-the-scenes with everyone else’s highlight reel.",
+      "working with react has made life so simple.",
+    category:"tech",
     mediaURL: "",
     likes: {
       likeCount: 7,
@@ -304,7 +319,8 @@ export const posts = [
 
   {
     _id: "l9pedEMjZS",
-    content: "If you don’t risk anything, you risk even more.",
+    content: "social media is one the root cause of low level focus.",
+    category:"news",
     mediaURL: "",
     likes: {
       likeCount: 6,
@@ -319,7 +335,8 @@ export const posts = [
 
   {
     _id: "lbW4dlCpNC",
-    content: "If it makes you nervous, you’re doing it right.",
+    content: "APPLE LAUNCHED NEW I PHONE 80 PRO MAX, @999999 DOLLARS.",
+    category:"news",
     mediaURL: "",
     likes: {
       likeCount: 12,
@@ -335,7 +352,8 @@ export const posts = [
   {
     _id: "k-Vwd2d7Vt",
     content:
-      "I learned a long time ago that there is something worse than missing the goal, and that’s not pulling the trigger.",
+      "Started learning THREE JS.",
+    category:"tech",
     mediaURL: "",
     likes: {
       likeCount: 9,
@@ -352,6 +370,7 @@ export const posts = [
     _id: "R2lAuXvK7V",
     content:
       "Success is stumbling from failure to failure with no loss of enthusiasm. Love this quote by Winston Churchill.",
+    category:"isnpiration",
     mediaURL: "",
     likes: {
       likeCount: 12,
@@ -368,6 +387,7 @@ export const posts = [
     _id: "G5xd30tMCR",
     content:
       "Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence.",
+    category:"inspiration",
     mediaURL: "",
     likes: {
       likeCount: 8,
@@ -383,7 +403,8 @@ export const posts = [
   {
     _id: "lF8cnfPAe9",
     content:
-      "Life is like riding a bicycle. To keep your balance you must keep moving.",
+      "The quiet life at village reminds me how little we need to be happy, every thing we need is just enough.",
+    category:"nature",
     mediaURL: "",
     likes: {
       likeCount: 5,
@@ -400,6 +421,7 @@ export const posts = [
     _id: "stfTkUi2Nt",
     content:
       "“Do not wait for the perfect time and place to enter, for you are already onstage.",
+    category:"inspiration",
     mediaURL: "",
     likes: {
       likeCount: 25,
@@ -415,6 +437,7 @@ export const posts = [
   {
     _id: "quiTkUi2Nt",
     content: "It is a rough road that leads to the heights of greatness.",
+    category:"inspiration",
     mediaURL: "",
     likes: {
       likeCount: 8,
