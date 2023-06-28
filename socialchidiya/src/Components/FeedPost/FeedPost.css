@@ -2,6 +2,7 @@
     padding: 1rem 0rem 1rem 1rem;
     border: 1px solid  black;
     margin: 5px;
+    
 }
 
 .main-feed-content{
@@ -53,6 +54,10 @@
     color: darkgoldenrod;
 }
 
+.post-content{
+    position: relative;
+}
+
 
 .pop-out-btn{
     position: absolute;
@@ -64,19 +69,15 @@
 }
 
 .name{
- 
     cursor: pointer;
-
 }
+
   
 .pop-out-menu {
     position: absolute;
     padding: 2rem 0rem 1rem 2rem;
-    top: 3rem;
-    right: -2rem;
     border: 1px solid black;
     z-index: 2;
-    background-color: rgb(255, 255, 97);
   }
 
 .pop-out-menu button{

@@ -20,7 +20,7 @@ function EditPopUp({editOption,postId}) {
        <div className="back-container" onClick={()=>setViewEdit(!viewEdit)}></div>
        <div className="update-container">
        <CreatePost editOption={editOption} postId={postId} />
-       </div>
+    </div>
             
     </div>
   )
