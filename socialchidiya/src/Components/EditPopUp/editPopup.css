@@ -1,0 +1,21 @@
+.edit-pop-up{
+    position: absolute;
+    z-index: 99;
+    top: 0;
+}
+
+.update-container{
+    position: absolute;
+    background-color: white;
+    z-index: 9;
+    top: 0;
+}
+
+.back-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.505);
+    position: absolute;
+    top: -30rem;
+    left:-34rem ;
+}

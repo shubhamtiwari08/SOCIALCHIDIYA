@@ -6,9 +6,11 @@ export const postContext = createContext()
 
 function PostProvider({children}) {
     const {isLogged}=useContext(AuthContext)
+    const [createToggle,setCreateToggle]=useState(false)
     const [singlePost,setSinglePost] = useState({})
+    const [edit,setEdit] = useState(false)
   
-    const initialState={posts:[],sort:"",bookmarked:[],exploreSort:"all"}
+    const initialState={posts:[],sort:"latest",bookmarked:[],exploreSort:"all"}
 
     const [postState,postDispatch] = useReducer(postReducer,initialState)
   
@@ -24,6 +26,26 @@ function PostProvider({children}) {
             console.error(error)
         }
     }
+
+
+    const deletePost = async(id)=>{
+        try {
+            const response = await fetch(`/api/posts/${id}`,{
+                method:"DELETE",
+                headers:{
+                    authorization:Token
+                }
+            })
+            const data = await response.json()
+            if(response.status === 201){
+            postDispatch({type:"SET_POST",payload:data.posts})                 
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+
 
     const getDetailedPost = async(id)=>{
         try {
@@ -136,8 +158,29 @@ function PostProvider({children}) {
          } catch (error) {
             console.error(error)
          }
+        }
+
+    const editPost = async(id,body)=>{
+        try {
+            const response = await fetch(`/api/posts/edit/${id}`,{
+                method:"POST",
+                headers:{
+                    authorization:Token
+                },
+                body:JSON.stringify({
+                    postData:body
+                })
+            })
+            const data = await response.json()
+            postDispatch({type:"SET_POST",payload:data.posts})
+            console.log(data)
+
+        } catch (error) {
+            console.error(error)
+        }
     }
 
+    
 
 
     useEffect(()=>{
@@ -149,7 +192,7 @@ function PostProvider({children}) {
 
 
   return (
-    <postContext.Provider value={{postState,postDispatch,createPost,getDetailedPost,singlePost,LikePost,dislikePost,removeBookmarkPost,addBookmarkPost }}>
+    <postContext.Provider value={{edit,setEdit,editPost,deletePost,postState,createToggle,setCreateToggle,postDispatch,createPost,getDetailedPost,singlePost,LikePost,dislikePost,removeBookmarkPost,addBookmarkPost }}>
     {children}
     </postContext.Provider>
   )

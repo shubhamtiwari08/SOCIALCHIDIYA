@@ -6,18 +6,38 @@ import { faBookmark, faComment, faEllipsis, faHeart, faShare } from '@fortawesom
 import { postContext } from '../../Context/PostContext/PostProvider'
 import { useNavigate } from 'react-router'
 import { userContext } from '../../Context/userContext/userContext'
+import Clipboard from 'clipboard'
+import OptionPopUp from '../optionPopup/optionPopUp'
+import EditPopUp from '../EditPopUp/EditPopUp'
 
 function FeedPost({feedData}) {
 
-  const {_id,content,likes:{likeCount,likedBy},mediaUrl,likes,comments,username} = feedData
-  const {getDetailedPost,addBookmarkPost,removeBookmarkPost,LikePost,dislikePost,postState} = useContext(postContext)
+
+
+  const [viewEdit,setViewEdit] = useState(false)
+  const [option,setOption] = useState(false)
+
+  const {_id,content,mediaUrl,likes,comments,username} = feedData
+  const {getDetailedPost,edit,setEdit,addBookmarkPost,removeBookmarkPost,deletePost,LikePost,dislikePost,postState} = useContext(postContext)
   const {userState} = useContext(userContext)
+  
 
   const mainUser = userState.authUser
+  const {allUsers}= userState
+  const profileUrl = allUsers.find(user=> user.username.includes(username)).avatarUrl
 
   const {bookmarked} = postState
 
-  console.log(bookmarked)
+  const clipboard = new Clipboard('.copy-button', {
+    text: function() {
+      return `localhost:3000/home/${_id}`;
+    }
+  });
+
+  const thirdUser = allUsers.find(user => user.username === username)
+  const userId = thirdUser._id
+  const firstName = thirdUser.firstName
+  const lastName = thirdUser.lastName
 
   const Navigate = useNavigate()
   const handleSinglePost = (id)=>{
@@ -31,7 +51,7 @@ function FeedPost({feedData}) {
 
 
   const likedByUser = () =>{
-    return likedBy?.filter((userId)=> userId._id === mainUser?._id).length !==0
+    return likes?.likedBy?.filter((userId)=> userId._id === mainUser?._id).length !==0
   }
 
   
@@ -53,32 +73,43 @@ function FeedPost({feedData}) {
        return LikePost(id)
      }
   }
+  
+  
+
 
   
   
 
   return (
     <div className='feed-post-main-container' >
-     <ProfileCircle/>
-     <div className="Post-content" onClick={()=>handleSinglePost(_id)}>
-       <div className="name">
-         <p><span>{username}</span> <span>@{username}</span></p>
-         <button><FontAwesomeIcon icon={faEllipsis} color='blue' size='xl'/></button>
+     
+     <div className="main-feed-content">
+     <ProfileCircle  url ={profileUrl}/>
+     <div className="Post-content">
+     {username === userState?.authUser?.username && <button className='pop-out-btn' onClick={()=> setOption(!option)} ><FontAwesomeIcon icon={faEllipsis} color='blue' size='xl'/></button>}
+       <div className="name" onClick={()=>Navigate(`/thirdprofile/${userId}`)}>
+         <p><span className='full-name'>{`${firstName} ${lastName}`}</span> <span className='username'>@{username}</span></p>
+         {viewEdit && <EditPopUp editOption={{viewEdit,setViewEdit}} postId={_id}/>}
        </div>
-       <div className="post-info">
+       <div className="option-btns">
+       {option&&<OptionPopUp id={_id} editOption={{viewEdit,setViewEdit}} toggle={{setOption,option}} editToggle={{edit,setEdit}} />}
+       </div>
+       <div className="post-info" onClick={()=>handleSinglePost(_id)}>
          {content}
        </div>
      </div>
-     <div className="action-btns" >
-       <div onClick={()=>handleLike(_id)}>{likedByUser()?<FontAwesomeIcon icon={faHeart} color='red' />:<FontAwesomeIcon icon={faHeart} color='blue' />} {likeCount}</div>
-       <FontAwesomeIcon icon={faComment} color='blue'/>
-       <FontAwesomeIcon icon={faShare} color='blue' />
+    </div>
+    <div className="action-btns" >
+       <div onClick={()=>handleLike(_id)}>{likedByUser()?<FontAwesomeIcon icon={faHeart} color='red' />:<FontAwesomeIcon icon={faHeart} color='blue' />} {likes?.likeCount}</div>
+       <div className="comment"><FontAwesomeIcon icon={faComment} color='blue'/>{comments?.length>0?comments?.length:""}</div>
+       <div className="copy-button"><FontAwesomeIcon icon={faShare} color='blue' /></div>
        <span className='bookmark-btn' onClick={()=>handleBookmark(_id)}>{bookmarkedByUser()?<FontAwesomeIcon icon={faBookmark} color='grey' />:<FontAwesomeIcon icon={faBookmark} color='blue' />}</span>
        
     </div>
 
     </div>
   )
-}
+  }
+
 
 export default FeedPost

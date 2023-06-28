@@ -1,0 +1,29 @@
+.edit-container{
+    display: grid;
+    grid-template-rows:repeat(6,1fr) ;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+}
+
+.main-editProfile-container h1{
+    padding: 1rem;
+}
+.main-editProfile-container{
+    width: 30rem;
+    padding: 3rem 4rem 3rem 3rem;
+    position: absolute;
+    top: 20rem;
+    right: 45rem;
+    z-index: 99;
+    background-color: transparent;
+}
+
+.background-profile{
+        background-color: rgba(0, 0, 0, 0.37);
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        left: -40rem;
+        top: -20rem;
+        z-index: -1;
+}

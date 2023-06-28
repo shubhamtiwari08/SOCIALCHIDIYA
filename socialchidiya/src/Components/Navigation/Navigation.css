@@ -1,13 +1,4 @@
-*{
-    background-color: var(--color-base);
-}
-
-.logo{
-    position: absolute;
-    width: 35rem;
-    top: 0;
-}
-
+ 
 .navigation-links{
     height: 90vh;
     width: 23rem;
@@ -17,21 +8,39 @@
     padding: 2rem;
     box-shadow: 0 0 5px 1px gray;
     margin: 5rem 0 0 1rem;
+    position: fixed;
+    z-index: 0;
 }
 
-.navigation-links ul{
+.navigation-links ul {
     list-style: none;
     line-height: 3rem;
     height: 15rem;
-    width: 7rem;
+    width: 9rem;
+    margin-left: 2rem;
     font-weight: 500;
     color: var(--color-primary);
 }
 
-.navigation-links ul li:hover{
+.navigation-links ul a{
+    list-style: none;
+    line-height: 3rem;
+    text-decoration: none;
+    height: 15rem;
+    width: 7rem;
+    font-weight: 800;
+    color: var(--color-primary);
+}
+
+.navigation-links ul li a:hover{
     font-weight: bold;
     color: var(--color-secondary);
     cursor: pointer;
+}
+
+.nav-link.active{
+    background-color: rgba(255, 204, 0, 0.667);
+    padding: 0.5rem 1rem;
 }
 
 .navigation-links button{
@@ -51,6 +60,7 @@
     top: 10px;
     left: 5rem;
     color: var(--color-primary);
+    cursor: pointer;
 }
 
 .create-post-pop-up{

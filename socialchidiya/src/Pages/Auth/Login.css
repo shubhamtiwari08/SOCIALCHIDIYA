@@ -1,4 +1,5 @@
 .login-main-container{
+    color: blue;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,6 +7,12 @@
     width: 100%;
     height: 100vh;
     border: 1px solid black;
+}
+
+.login-head{
+    padding: 0.3rem;
+    margin-bottom: 0.5rem;
+    color: rgb(255, 204, 0);
 }
 
 .container{
@@ -18,10 +25,24 @@
     padding: 1rem;
     width: 30rem;
     height: 20rem;
+
+}
+
+.container h2{
+    text-shadow: 1px 1px 2px black;
+}
+
+.container label{
+    font-weight: bold;
 }
 
 .container input{
     margin: 0.5rem 0;
+    box-shadow: 0 0 5px 1px gray;
+}
+
+.container input:focus{
+    outline: 1px solid blue;
 }
 
 .container input[type="submit"]{
@@ -29,4 +50,37 @@
     background-color: blue;
     color: yellow;
     font-weight: bold;
+    border: none;
+    box-shadow: 0 0 5px 1px gray;
+    cursor: pointer;
 }
+
+.container input[type="submit"]:hover{
+    color: blue;
+    background-color: yellow;
+}
+
+.container input[type="submit"]:active{
+    color: yellow;
+    background-color: blue;
+}
+
+.guest-btn{
+    margin-left: 1rem;
+    box-shadow: 0 0 5px 1px gray;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.create-account a{
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.create-account a:hover{
+    color: rgb(255, 204, 0);
+    
+}
+

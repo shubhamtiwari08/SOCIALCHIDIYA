@@ -1,6 +1,6 @@
 .main-container-home{
-    display: flex;
-    justify-content: space-between;
+   display: grid;
+   grid-template-columns: 1fr 2.4fr 1fr;
 }
 
 section:nth-of-type(2){
@@ -12,8 +12,13 @@ main{
     flex-direction: column;
     box-shadow: 0 0 5px 1px gray;
     width: 60rem;
-    margin: 5rem 1rem;
+    margin: 5rem 0;
     padding: 1rem;
+}
+
+.main-feed{
+    position: relative;
+    z-index: 1;
 }
 
 .filter-btn{
@@ -23,9 +28,37 @@ main{
 }
 
 .sort-btn{
-    padding: 0.2rem;
+    padding: 0.5rem;
     margin: 0.2rem;
     cursor: pointer;
-    background-color: rgba(252, 205, 36, 0.724);
-    border: 1px solid black;
+    box-shadow: 0 0 5px 1px gray;
+    cursor: pointer;
 }
+
+/*scroll*/
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #dcd468;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #566eb1;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #fcdd10;
+  }
+  
+  /* Firefox */
+  /* Please note that Firefox currently only supports styling the scrollbar in dark mode. */
+  /* You may need to enable the "ui.prefersReducedMotion" preference in Firefox for the scrollbar styling to work. */
+  /* To do this, open "about:config" in Firefox, search for "ui.prefersReducedMotion", and set it to 0. */
+  /* Once enabled, you can apply the following styles: */
+  
+
+

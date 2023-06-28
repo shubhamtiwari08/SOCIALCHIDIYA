@@ -36,6 +36,7 @@
 
 .logo{
     font-size: xx-large;
+    color: var(--color-secondary);
 }
 
 .tagline{
@@ -52,10 +53,10 @@
     letter-spacing: 0.5rem;
     font-weight: bolder;
     color: var(--color-primary);
-    font-style: italic;
     font-stretch: extra-expanded;
     text-shadow: 1px 2px 2px black;
     background-color: var(--color-secondary);
+    margin-top: 1rem;
 }
 
 
@@ -66,9 +67,6 @@
     margin-bottom: 0.5rem;
 }
 
-.logo-name{
-    box-shadow: 1px 1px 5px 5px solid black;
-}
 
 .hero-word-two{
     font-size: xx-large;

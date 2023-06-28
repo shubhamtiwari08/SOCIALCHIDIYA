@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Profile.css'
 import Navigation from '../../Components/Navigation/Navigation'
 import Suggestions from '../../Components/Suggestions/Suggestions'
@@ -7,15 +7,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilter, faFilterCircleDollar, faFilterCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import FeedPost from '../../Components/FeedPost/FeedPost'
 import ProfileCard from '../../Components/ProfileCard/ProfileCard'
+import { AuthContext } from '../../Context/AuthContext/AuthContext'
 
 function Profile() {
+
+  const {userProfile} = useContext(AuthContext)
+
   return (
     <div className='main-container-home'>
        <section>
           <Navigation/>
        </section>
        <main>
-       <ProfileCard/>
+       <ProfileCard profileUsername={userProfile.username} userId={userProfile._id}/>
        
        </main>
        <section>

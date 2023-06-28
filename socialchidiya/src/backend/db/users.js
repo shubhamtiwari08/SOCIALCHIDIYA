@@ -6,6 +6,20 @@ import { formatDate } from "../utils/authUtils";
  * */
 
 
+// https://randomuser.me/api/portraits/women/2.jpg
+// https://randomuser.me/api/portraits/men/3.jpg
+// https://randomuser.me/api/portraits/women/4.jpg
+// https://randomuser.me/api/portraits/men/5.jpg
+// https://randomuser.me/api/portraits/women/6.jpg
+// https://randomuser.me/api/portraits/men/7.jpg
+// https://randomuser.me/api/portraits/women/8.jpg
+// https://randomuser.me/api/portraits/men/9.jpg
+// https://randomuser.me/api/portraits/women/10.jpg
+
+
+
+
+
 export const users = [
   {
     _id: "t7cZfWIp-q",
@@ -16,7 +30,7 @@ export const users = [
     bio: "Be yourself!",
     bookmarks: [],
     avatarUrl:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
+      "https://randomuser.me/api/portraits/men/2.jpg",
     website: "https://romabulani.netlify.app/",
     createdAt: "2022-01-01T10:55:06+05:30",
     updatedAt: formatDate(),
@@ -30,7 +44,7 @@ export const users = [
     bio: "Hello World",
     bookmarks: [],
     avatarUrl:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
+      "https://randomuser.me/api/portraits/men/3.jpg",
     website: "https://google.com/",
     createdAt: "2022-01-02T10:55:06+05:30",
     updatedAt: formatDate(),
@@ -44,7 +58,7 @@ export const users = [
     bio: "Whats in bio?",
     bookmarks: [],
     avatarUrl:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554256/socialmedia/avatars/jane-doe_il3cvx.webp",
+      "https://randomuser.me/api/portraits/men/4.jpg",
     website: "https://romabulani.netlify.app/",
     createdAt: "2022-01-01T10:55:06+05:30",
     updatedAt: formatDate(),
@@ -57,7 +71,7 @@ export const users = [
     password: "carlsmith123",
     bio: "Whats in bio?",
     avatarUrl:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651563581/socialmedia/avatars/carl-smith_mehw0u.webp",
+      "https://randomuser.me/api/portraits/men/8.jpg",
     website: "https://romabulani.netlify.app/",
     createdAt: "2022-01-03T10:55:06+05:30",
     updatedAt: formatDate(),
@@ -72,7 +86,7 @@ export const users = [
     bio: "Aspiring Frontend Engineer",
     bookmarks: [],
     avatarUrl:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652525370/socialmedia/avatars/roma.webp",
+      "https://randomuser.me/api/portraits/men/9.jpg",
     website: "https://romabulani.hashnode.dev/",
     createdAt: "2022-01-04T10:55:06+05:30",
     updatedAt: formatDate(),
@@ -87,7 +101,7 @@ export const users = [
     bio: "What's up?",
     bookmarks: [],
     avatarUrl:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652525373/socialmedia/avatars/alex-maxwell.webp",
+      "https://randomuser.me/api/portraits/men/6.jpg",
     website: "",
     createdAt: "2022-01-05T10:55:06+05:30",
     updatedAt: formatDate(),
@@ -102,7 +116,7 @@ export const users = [
     bio: "Frontend Engineer",
     bookmarks: [],
     avatarUrl:
-      "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652525510/socialmedia/avatars/sophia-jones.webp",
+      "https://randomuser.me/api/portraits/women/1.jpg",
     website: "",
     createdAt: "2022-01-06T10:55:06+05:30",
     updatedAt: formatDate(),

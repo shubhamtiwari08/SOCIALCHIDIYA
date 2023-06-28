@@ -1,10 +1,14 @@
 .feed-post-main-container{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr ;
-    padding: 1rem;
+    padding: 1rem 0rem 1rem 1rem;
     border: 1px solid  black;
     margin: 5px;
+}
+
+.main-feed-content{
+    display: grid;
+    grid-template-columns:0.1fr 1fr;
+    grid-template-rows: 1fr ; 
+    z-index: 0;
 }
 
 .name{
@@ -19,10 +23,74 @@
     margin: 0 3rem 1rem 0;
 }
 
-.action-btns{
-    width: 50rem;
-    padding: 0.5rem;
-    display: flex;
-    justify-content: space-between;
+.full-name{
+    font-weight: 600;
+    color: darkblue;
 }
 
+.username{
+    color: gray;
+}
+
+
+.action-btns{
+    color:darkblue;
+    font-size: small;
+    width: 53.2rem;
+    padding: 0.5rem;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-info{
+    cursor: pointer;
+    margin: 1rem 0rem;
+    word-wrap: break-word;
+    font-size: large;
+    width: 49rem;
+    color: darkgoldenrod;
+}
+
+
+.pop-out-btn{
+    position: absolute;
+    right: 2rem;
+    border: none;
+    z-index: 1;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.name{
+ 
+    cursor: pointer;
+
+}
+  
+.pop-out-menu {
+    position: absolute;
+    padding: 2rem 0rem 1rem 2rem;
+    top: 3rem;
+    right: -2rem;
+    border: 1px solid black;
+    z-index: 2;
+    background-color: rgb(255, 255, 97);
+  }
+
+.pop-out-menu button{
+    border: 1px solid black;
+    color: var(--color-secondary);
+    padding: 0.5rem;
+    background-color: var(--color-primary);
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0.5rem;
+}
+
+.pop-out-menu button:hover{
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+}
+  

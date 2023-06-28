@@ -1,6 +1,9 @@
 .follow-main-container{
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.303);
     padding: 1rem;
+    position: fixed;
+    right: 0;
+    z-index: -2;
 }
 
 .search-follow input{

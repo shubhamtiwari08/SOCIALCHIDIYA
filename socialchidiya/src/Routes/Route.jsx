@@ -1,5 +1,5 @@
-import React from 'react'
-import { Route,Routes } from 'react-router'
+import React, { useContext, useEffect } from 'react'
+import { Route,Routes, useParams } from 'react-router'
 import Landing from '../Pages/Landing/Landing'
 import Home from '../Pages/Home/Home'
 import Profile from '../Pages/Profile/Profile'
@@ -10,15 +10,18 @@ import SignUp from '../Pages/Auth/SignUp'
 import Login from '../Pages/Auth/Login'
 import Post from '../Pages/Post/Post'
 import MockAPI from '../Components/Mockman/mockman'
+import { userContext } from '../Context/userContext/userContext'
 
 function Routing() {
+
+  
   return (
     <div>
     <Routes>
        <Route path='/' element={<Landing/>}/>
        <Route path='/home' element={<Home/>}/>
        <Route path='/profile' element={<Profile/>}/>
-       <Route path='/Thirdprofile' element={<ThridProfile/>}/>
+       <Route path='/thirdprofile/:userId' element={<ThridProfile/>}/>
        <Route path='/explore' element={<Explore/>}/>
        <Route path='/bookmark' element={<Bookmark/>}/>
        <Route path='/signup' element={<SignUp/>}/>

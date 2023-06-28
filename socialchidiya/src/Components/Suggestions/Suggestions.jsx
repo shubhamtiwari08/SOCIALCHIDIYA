@@ -24,8 +24,8 @@ function Suggestions() {
     finalUsers?.filter(
       (currUser)=>{
        return  !mainUser?.following?.find(
-          (innerCurrUser) => innerCurrUser._id === currUser._id
-        ) && currUser.username !== mainUser?.usesrname
+          (innerCurrUser) => innerCurrUser._id === currUser._id 
+        ) && currUser?._id !== mainUser?._id
       }
      )
   )
@@ -37,7 +37,7 @@ function Suggestions() {
     <div className='follow-main-container'>
        <div className="search-follow"><input type="text" placeholder='Search Posts,People,Anything' onChange={(e)=>handleSearch(e)} /></div>
 
-       <div className="followers"><p><span>who to follow</span> <span>Show more</span></p> {displaySuggestion?.map(item =><Follow data={item}/> ) } </div>   
+       <div className="followers"><p><span>who to follow</span></p> {displaySuggestion?.map(item =><Follow data={item}/>)} </div>   
     </div>
   )
 }

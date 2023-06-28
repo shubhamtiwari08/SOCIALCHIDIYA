@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ProfileCircle from '../Navigation/Profile/ProfileCircle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark, faComment, faHeart, faShare } from '@fortawesome/free-solid-svg-icons'
 import './Comment.css'
+import { userContext } from '../../Context/userContext/userContext'
 
 function Comment({commentData,postUsername}) {
     console.log(commentData)
+    const {userState} = useContext(userContext)
+    
+    const {allUsers}= userState
+    const profileUrl = allUsers.find(user=> user.username.includes(commentData?.username)).avatarUrl
   return (
     <div className='main-conmment-container'>
     <div className="profile-info">
-    <ProfileCircle/>
+    <ProfileCircle url={profileUrl}/>
     <div className="comment-profile">
       <p><span>{commentData?.username}</span><span> @{commentData?.username}</span></p>
       <p>replying to @{postUsername}</p>

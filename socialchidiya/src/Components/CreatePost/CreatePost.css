@@ -9,8 +9,7 @@
     margin: 5px;
     width: 57rem;
     height: 15rem;
-    border: 1px solid black;
-    
+    border: 1px solid black;    
 }
 
 .create-post-main-container input{
@@ -46,7 +45,12 @@
 
 textarea{
     height: 8rem;
-    background-color: rgba(226, 179, 11, 0.566);
+    background-color: rgb(197, 167, 57);
+    
+}
+
+textarea:focus{
+    outline:2px solid blue;
 }
 
 
