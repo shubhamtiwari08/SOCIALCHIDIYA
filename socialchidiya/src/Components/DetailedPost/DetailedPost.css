@@ -15,9 +15,10 @@
 
 .dateandtime{
     display: flex;
-    width: 10rem;
+    width: 15rem;
     justify-content: space-between;
     padding: 1rem;
+    color: gray;
 }
 
 .post-profile-container h4{

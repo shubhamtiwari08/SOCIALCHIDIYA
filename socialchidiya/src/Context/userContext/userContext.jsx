@@ -119,7 +119,7 @@ useEffect(()=>{
 
 
   return (
-     <userContext.Provider value={{unFollowUser,getThirdUser,followUser,editUser,getMainUser,userState}}>
+     <userContext.Provider value={{unFollowUser,getUser,getThirdUser,followUser,editUser,getMainUser,userState}}>
       {children}
      </userContext.Provider>
   )

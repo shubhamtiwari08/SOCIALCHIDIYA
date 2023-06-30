@@ -25,6 +25,7 @@ function ThirdProfile() {
 
   useEffect(()=>{
     getThirdUser(userId)
+    
   },[thirdUsername]) 
 
   

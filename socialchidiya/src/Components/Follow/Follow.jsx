@@ -3,11 +3,13 @@ import './Follow.css'
 import ProfileCircle from '../Navigation/Profile/ProfileCircle'
 import { userContext } from '../../Context/userContext/userContext'
 import { useNavigate } from 'react-router'
+import { AuthContext } from '../../Context/AuthContext/AuthContext'
 
 function Follow({data}) {
     
   const {_id,firstName,lastName,username} = data
   const {followUser,userState} = useContext(userContext)
+  const {isLogged}= useContext(AuthContext)
   const {allUsers}= userState
   const profileUrl = allUsers.find(user => user.username.includes(username)).avatarUrl
 
@@ -24,7 +26,7 @@ function Follow({data}) {
       </div> 
       </div>
       
-      <button onClick={()=>followUser(_id)} className='button'>Follow +</button>
+      <button onClick={()=>isLogged?followUser(_id):Navigate("/login")} className='button'>Follow +</button>
     </div>
   )
 }

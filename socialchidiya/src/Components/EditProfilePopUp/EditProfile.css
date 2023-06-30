@@ -3,6 +3,8 @@
     grid-template-rows:repeat(6,1fr) ;
     grid-template-columns: repeat(2,1fr);
     gap: 1rem;
+    background-color: white;
+    padding: 1rem;
 }
 
 .main-editProfile-container h1{
@@ -15,7 +17,7 @@
     top: 20rem;
     right: 45rem;
     z-index: 99;
-    background-color: transparent;
+    background-color: white;
 }
 
 .background-profile{

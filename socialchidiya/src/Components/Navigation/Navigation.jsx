@@ -12,7 +12,7 @@ import { postContext } from '../../Context/PostContext/PostProvider';
 
 function Navigation() {
    const {createToggle,setCreateToggle} = useContext(postContext)
-   const{userProfile} = useContext(AuthContext)
+   const{userProfile,isLogged} = useContext(AuthContext)
    const Navigate = useNavigate()
 
    const {username,firstName,lastName,avatarUrl} = userProfile
@@ -23,19 +23,27 @@ function Navigation() {
       <div className="navigation-links">
          <ul>
 
-            <li><FontAwesomeIcon icon={faHome} style={{ color: 'blue' }} /> <NavLink to='/home' activeClassName="active" className="nav-link">Home</NavLink></li>
-            <li><FontAwesomeIcon icon={faCompass} style={{ color: 'blue' }} spin/> <NavLink to='/explore' activeClassName="active" className="nav-link">Explore</NavLink></li>
+            <li>
+            <FontAwesomeIcon icon={faHome} style={{ color: 'blue' }} />
+            <NavLink to='/home' activeClassName="active" className="nav-link">Home</NavLink>
+            </li>
+            <li>
+            <FontAwesomeIcon icon={faCompass} style={{ color: 'blue' }} spin/>
+         <NavLink to='/explore' activeClassName="active" className="nav-link">Explore</NavLink>
+            </li>
             <li><FontAwesomeIcon icon={faBookmark} style={{color:"blue"}}/> <NavLink to='/bookmark' activeClassName="active"  className="nav-link">Bookmark</NavLink></li>
             <li><FontAwesomeIcon icon={faUser} style={{color:"blue"}}/> <NavLink to='/profile' activeClassName="active"  className="nav-link">Profile</NavLink></li>
          </ul>
-         <button className='button' onClick={()=>setCreateToggle(!createToggle)}>Create Post</button>
+         <button className='button' onClick={()=>isLogged?setCreateToggle(!createToggle):Navigate("/login")}>Create Post</button>
          <div className="profile-link">
-         <ProfileCircle url={avatarUrl}/>
-         <div className="profile-name" onClick={()=>Navigate("/profile")}>
+         {isLogged? 
+            <>
+            <ProfileCircle url={avatarUrl}/>
+            <div className="profile-name" onClick={()=>Navigate("/profile")}>
             <h5 >{firstName +" "+ lastName}</h5>
             <p>@{username}</p>
-
-         </div>
+            </div>
+            </>:""}
          
       </div>
       </div>

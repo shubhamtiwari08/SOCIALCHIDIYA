@@ -7,4 +7,11 @@
 
 .filter-btns button{
     padding: 0.5rem;
+    cursor: pointer;
+}
+
+.explore-btn{
+    background-color: var(--color-secondary);
+    color: black;
+    border: 3px solid black;
 }

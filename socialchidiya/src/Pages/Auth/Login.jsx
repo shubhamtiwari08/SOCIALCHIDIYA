@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import './Login.css'
 import { AuthContext } from '../../Context/AuthContext/AuthContext'
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
@@ -9,6 +9,7 @@ function Login() {
 
   const{isLogged,setIsLogged,userProfile,setUserProfile}= useContext(AuthContext)
   const Navigate = useNavigate()
+  const location = useLocation()
 
   const [loginData,setLoginData] = useState({
     username:"",
@@ -37,7 +38,7 @@ const userLogin = async(loginData)=>{
     localStorage.setItem("Token", data.encodedToken)
     setIsLogged(!isLogged)
     toast.success("logged in successfully")
-    Navigate("/home")
+    Navigate(location.state?.from?.pathname || "/home")
   }else if(response.status === 404){
     toast.error("invalid email or password")
   }

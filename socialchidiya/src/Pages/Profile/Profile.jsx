@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Profile.css'
 import Navigation from '../../Components/Navigation/Navigation'
 import Suggestions from '../../Components/Suggestions/Suggestions'
@@ -8,23 +8,32 @@ import { faFilter, faFilterCircleDollar, faFilterCircleXmark } from '@fortawesom
 import FeedPost from '../../Components/FeedPost/FeedPost'
 import ProfileCard from '../../Components/ProfileCard/ProfileCard'
 import { AuthContext } from '../../Context/AuthContext/AuthContext'
+import Loading from '../../Components/loader/loading'
 
 function Profile() {
 
+  const [loading,setLoading] = useState(true)
   const {userProfile} = useContext(AuthContext)
+
+
+  useEffect(()=>{
+    setLoading(false)
+  },[])
 
   return (
     <div className='main-container-home'>
+    {loading?<Loading/>:
+       <>
        <section>
           <Navigation/>
        </section>
        <main>
-       <ProfileCard profileUsername={userProfile.username} userId={userProfile._id}/>
-       
+       <ProfileCard profileUsername={userProfile.username} userId={userProfile._id}/> 
        </main>
        <section>
            <Suggestions/>
        </section>
+       </>}
     </div>
   )
 }

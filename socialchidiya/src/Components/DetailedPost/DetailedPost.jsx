@@ -12,16 +12,27 @@ import { AuthContext } from '../../Context/AuthContext/AuthContext'
 
 function DetailedPost() {
 
-   const {getDetailedPost,postState,addBookmarkPost,removeBookmarkPost,LikePost,dislikePost,singlePost} = useContext(postContext)
+   const {getDetailedPost,getPost,postState,addBookmarkPost,removeBookmarkPost,LikePost,dislikePost,singlePost} = useContext(postContext)
    const {userState}=useContext(userContext)
-   const {userProfile} = useContext(AuthContext)
+   const {userProfile,isLogged} = useContext(AuthContext)
 
    const {avatarUrl} = userProfile
 
    const {singlePostId} = useParams()
    // const {_id,content,mediaURL,likes:{ likeCount,likedBy,dislikedBy},username,createdAt} = singlePost
 
-   const date = singlePost?.createdAt?.slice(0,10)
+   const date = (singlePost?.createdAt?.slice(0,10))
+  //  const reverseDate =(date)=>{
+  //   var splitString = date.split("")
+  //   var reverseArray = splitString.reverse()
+  //   var joinArray = reverseArray.join("")
+
+  //   return joinArray
+  //  }
+
+  //  const correctDate = reverseDate(date)
+
+
    const time = singlePost?.createdAt?.slice(11,16)
    const comments = singlePost?.comments
    const {allUsers}= userState
@@ -57,12 +68,21 @@ function DetailedPost() {
    
     const handleLike=(id)=>{
        if(likedByUser()){
-          return dislikePost(id)
+          dislikePost(id)
+          getDetailedPost(singlePostId)
        }else{
-         return LikePost(id)
+        console.log("like")
+         LikePost(id)
+         getDetailedPost(singlePostId)
        }
     }
+
+    
   
+
+    useEffect(()=>{
+      getDetailedPost(singlePostId)
+    },[])
 
 
 
@@ -72,7 +92,7 @@ function DetailedPost() {
      <div>
      <div className='post-profile-container'>
      <div className='profile-info'>
-     <ProfileCircle url={avatarUrl}/>
+     <ProfileCircle url={profileUrl}/>
      <div className='profile'>
      <h4>{singlePost?.username}</h4>
      <p>@{singlePost?.username}</p>
@@ -92,20 +112,21 @@ function DetailedPost() {
       <hr />
       </div>
       <div className="action-btns action-btn-post">
-      <div onClick={()=>handleLike(singlePost?._id)}>{likedByUser()?<FontAwesomeIcon icon={faHeart} color='red' />:<FontAwesomeIcon icon={faHeart} color='blue' />} {singlePost?.likes?.likeCount}</div>                                                                       
-      <FontAwesomeIcon icon={faComment} color='blue'/>
-      <FontAwesomeIcon icon={faShare} color='blue'/>
+      <div onClick={()=>handleLike(singlePostId)} className="like-button"  >{likedByUser()?<FontAwesomeIcon icon={faHeart} color='red'  />:<FontAwesomeIcon icon={faHeart} color='blue'  />} {singlePost?.likes?.likeCount}</div>                                                                       
+      <div className="comment-button"><FontAwesomeIcon icon={faComment} color='blue'/></div>
+      <div className="copy-button"><FontAwesomeIcon icon={faShare} color='blue'/></div>
+      
       <span className='bookmark-btn' onClick={()=>handleBookmark(singlePost?._id)}>{bookmarkedByUser()?<FontAwesomeIcon icon={faBookmark} color='grey' />:<FontAwesomeIcon icon={faBookmark} color='blue' />}</span>
    </div>
    <hr />
-   <div className="comment">
+   {isLogged?<div className="comment">
      <ProfileCircle url={avatarUrl}/>
      <input type="text" placeholder='comment your reply'/>
      <button className='button post-btn' > Post </button>
-   </div>
+   </div>:""}
    <hr />
    {
-   comments?.map(comment => <Comment commentData={comment} postUsername={singlePost?.username}/>)
+    comments?.map(comment => <Comment commentData={comment} postUsername={singlePost?.username}/>)
    }
      </div>
   )

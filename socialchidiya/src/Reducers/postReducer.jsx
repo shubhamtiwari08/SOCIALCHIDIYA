@@ -1,6 +1,7 @@
 export const postReducer = (state,{type,payload}) =>{
      switch(type){
         case"SET_POST":
+        console.log( "respoooooooooooooooooooooooooonse")
         return {...state,posts:payload}
         case"SORTING":
         return {...state,sort:payload}

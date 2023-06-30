@@ -9,7 +9,6 @@
     display: grid;
     grid-template-columns:0.1fr 1fr;
     grid-template-rows: 1fr ; 
-    z-index: 0;
 }
 
 .name{
@@ -45,18 +44,20 @@
     align-items: center;
 }
 
+.like-button,.comment-button,.copy-button,.bookmark-btn{
+    cursor: pointer;
+}
+
 .post-info{
     cursor: pointer;
     margin: 1rem 0rem;
     word-wrap: break-word;
     font-size: large;
     width: 49rem;
-    color: darkgoldenrod;
+    text-align: start;
 }
 
-.post-content{
-    position: relative;
-}
+ 
 
 
 .pop-out-btn{
@@ -68,8 +69,14 @@
     background-color: transparent;
 }
 
+ 
 .name{
     cursor: pointer;
+}
+
+.option-btns{
+    position: absolute;
+    right: 5rem;
 }
 
   
@@ -78,6 +85,7 @@
     padding: 2rem 0rem 1rem 2rem;
     border: 1px solid black;
     z-index: 2;
+    background-color: white;
   }
 
 .pop-out-menu button{

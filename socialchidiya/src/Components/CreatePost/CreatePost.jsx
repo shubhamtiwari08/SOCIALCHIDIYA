@@ -6,11 +6,14 @@ import { faGift, faImage, faSmile } from '@fortawesome/free-solid-svg-icons'
 import { postContext } from '../../Context/PostContext/PostProvider'
 import EditPopUp from '../EditPopUp/EditPopUp'
 import { AuthContext } from '../../Context/AuthContext/AuthContext'
+import Loading from '../loader/loading'
+import { text } from '@fortawesome/fontawesome-svg-core'
+import { toast } from 'react-toastify'
 
 
 
 function CreatePost({editOption,postId}) {
-
+  const [textareaToggle,setTextareaToggle]=useState(false)
   const {createPost,editPost,createToggle,setCreateToggle,singlePost} = useContext(postContext)
   const {userProfile}=useContext(AuthContext)
   const {avatarUrl} = userProfile
@@ -41,27 +44,28 @@ function CreatePost({editOption,postId}) {
 
   const submitNewPost = (e)=>{
      e.preventDefault()
-     createPost(newPostData)
-     setNewPostData(initialData)
-   if(createToggle){
+  if(textareaToggle){
+    if(textareaToggle && editOption?.viewEdit){
+        editPost(postId,newPostData)
+        editOption?.setViewEdit(!editOption?.viewEdit)
+        toast.success("Post edited successfully!")
+     }else{
+    createPost(newPostData)
+    setNewPostData(initialData)
+    toast.success("New Post added successfully!")
+     }
+   }
+    if(createToggle ){
     setCreateToggle(!createToggle)
    }
-   if(editOption?.viewEdit){
-    editPost(postId,newPostData)
-      editOption?.setViewEdit(!editOption?.viewEdit)
-   }
+   
   }
-
-
-
-
-
-  return (
+   return (
     <div className='create-post-main-container'>
     <form onSubmit={submitNewPost}>
      <div className="input-box">
      <ProfileCircle url={avatarUrl}/>
-      <textarea name="content" placeholder="write about what's flocking..." id="createPost" cols="20" rows="5" value={newPostData.content} onChange={handleInput} />
+      <textarea name="content" placeholder="write about what's flocking..." id="createPost" cols="20" rows="5" value={newPostData.content} onChange={handleInput} onClick={()=>setTextareaToggle(true)} />
      </div>    
     <div className="btns">
     <div className="add-btns">
@@ -70,9 +74,8 @@ function CreatePost({editOption,postId}) {
     <FontAwesomeIcon icon={faImage} style={{ color: 'blue' }} />
     <FontAwesomeIcon icon={faGift} style={{ color: 'blue' }} />
     </div>
-    <button type='submit' className='button post-btn'>{editOption?.viewEdit ?"update":"Post"}</button>
+    <button type='submit' className='button post-btn' >{editOption?.viewEdit ?"update":"Post"}</button>
     </div>
-    
     </div>
     </form>
     </div>

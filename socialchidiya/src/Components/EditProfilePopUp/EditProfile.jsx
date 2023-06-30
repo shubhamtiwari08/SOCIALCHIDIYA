@@ -1,11 +1,12 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { userContext } from '../../Context/userContext/userContext'
 import ProfileCircle from '../Navigation/Profile/ProfileCircle'
 import './EditProfile.css'
+import { toast } from 'react-toastify'
 
 function EditProfile({editToggle}) {
 
-    const {userState,editUser}=useContext(userContext)
+    const {userState,editUser,getUser}=useContext(userContext)
     const {avatarUrl,bio,firstName,lastName,username,website}= userState.authUser
     
     
@@ -32,8 +33,11 @@ const handleSubmit =(e)=>{
     e.preventDefault()
     editUser(profileContent)
     editToggle.setEditProfile(!editToggle.editProfile)
-
+    toast.success("Details updated")
 }
+
+
+
 
   return (
     <div className='main-editProfile-container'>
@@ -43,7 +47,7 @@ const handleSubmit =(e)=>{
      <form onSubmit={handleSubmit}>
      <div className="edit-container">
       <p>avatar</p>
-      <p><ProfileCircle/></p>
+      <p><ProfileCircle url={userState?.authUser?.avatarUrl}/></p>
       <p>FirstName</p>
       <p>{profileContent.firstName}</p>
       <p>LastName</p>
@@ -55,7 +59,7 @@ const handleSubmit =(e)=>{
       <p>Website</p>
       <input type="text" name='website' value={profileContent.website} onChange={handleInput}/>
      </div>
-     <button type='submit'>update</button>
+     <button type='submit' className="button" >update</button>
      </form>
      </div>
      

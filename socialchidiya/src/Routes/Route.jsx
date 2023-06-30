@@ -11,6 +11,7 @@ import Login from '../Pages/Auth/Login'
 import Post from '../Pages/Post/Post'
 import MockAPI from '../Components/Mockman/mockman'
 import { userContext } from '../Context/userContext/userContext'
+import RequiresAuth from '../Components/privateRoute/RequiresAuth'
 
 function Routing() {
 
@@ -19,8 +20,8 @@ function Routing() {
     <div>
     <Routes>
        <Route path='/' element={<Landing/>}/>
-       <Route path='/home' element={<Home/>}/>
-       <Route path='/profile' element={<Profile/>}/>
+       <Route path='/home' element={<RequiresAuth><Home/></RequiresAuth>}/>
+       <Route path='/profile' element={<RequiresAuth><Profile/></RequiresAuth>}/>
        <Route path='/thirdprofile/:userId' element={<ThridProfile/>}/>
        <Route path='/explore' element={<Explore/>}/>
        <Route path='/bookmark' element={<Bookmark/>}/>

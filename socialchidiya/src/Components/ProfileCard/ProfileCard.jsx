@@ -6,11 +6,13 @@ import { postContext } from '../../Context/PostContext/PostProvider'
 import FeedPost from '../FeedPost/FeedPost'
 import EditProfile from '../EditProfilePopUp/EditProfile'
 import { users } from '../../backend/db/users'
+import { useNavigate } from 'react-router'
 
 function ProfileCard({profileUsername,userId}) {
   const [editProfile,setEditProfile]=useState(false)
+  const {isLogged} = useContext(AuthContext)
   const {postState} = useContext(postContext)
-  const {userState,getThirdUser,followUser,unFollowUser}=useContext(userContext)
+  const {userState,getUser,getThirdUser,followUser,unFollowUser}=useContext(userContext)
 
 
   const thirdUser = userState.allUsers.find(user=> user.username === profileUsername)
@@ -25,15 +27,16 @@ function ProfileCard({profileUsername,userId}) {
 
   const thirdUserPost = postState.posts.filter(post => post.username === username)
   const ifAuthUser = userState?.authUser?.username === username
-  const ifFollowing = userState?.authUser?.following.filter(user => user.username === username)
+  const ifFollowing = userState?.authUser?.following?.filter(user => user.username === username)
+  const navigate = useNavigate()
 
-  console.log(ifFollowing.length===1?"true":"false")
+  console.log(ifFollowing?.length===1?"true":"false")
 
   console.log(ifAuthUser, username, "check")
 
   useEffect(()=>{
     getThirdUser(userId)
-  },[userId])
+  },[userId,editProfile])
 
 
   return (
@@ -44,7 +47,7 @@ function ProfileCard({profileUsername,userId}) {
     </div>
     <h1>{`${firstName} ${lastName}`}</h1>
     <p>@{username}</p>
-    {ifAuthUser?(<button onClick={()=>setEditProfile(!editProfile)}>Edit profile</button>):(ifFollowing.length===1?<button onClick={()=>unFollowUser(userId)}>unFollow</button>:<button onClick={()=>followUser(userId)}>Follow</button>)}
+    {ifAuthUser?(<button className='button' onClick={()=>setEditProfile(!editProfile)}>Edit profile</button>):isLogged?(ifFollowing?.length===1?<button className='button' onClick={()=>unFollowUser(userId)}>unFollow</button>:<button className='button' onClick={()=>followUser(userId)}>Follow</button>):<button onClick={()=>navigate("/login")}>Follow</button>}
     <p>{bio}</p>
     <p>{website}</p>
     <div className="Reach-count">
@@ -55,7 +58,9 @@ function ProfileCard({profileUsername,userId}) {
        <p>following</p>
       <p>followers</p>  
     </div>
+    <div className="main-feed">
       {thirdUserPost.map(post => <FeedPost feedData={post}/>)}
+      </div>
       {editProfile && <EditProfile editToggle={{editProfile,setEditProfile}}/>}   
     </div>
   )

@@ -9,7 +9,8 @@
     margin: 5px;
     width: 57rem;
     height: 15rem;
-    border: 1px solid black;    
+    border: 1px solid black;   
+    background-color: white; 
 }
 
 .create-post-main-container input{
@@ -33,8 +34,6 @@
 
 .post-btn{
     padding: 0.5rem;
-    border: none;
-    box-shadow: 0 0 5px 1px gray;
 }
 
 .input-box{
@@ -45,7 +44,7 @@
 
 textarea{
     height: 8rem;
-    background-color: rgb(197, 167, 57);
+    background-color: var(--color-secondary);
     
 }
 

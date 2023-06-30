@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Home.css'
 import Navigation from '../../Components/Navigation/Navigation'
 import Suggestions from '../../Components/Suggestions/Suggestions'
@@ -11,12 +11,13 @@ import { postContext } from '../../Context/PostContext/PostProvider'
 import { getTrendingPost } from '../../Reducers/postReducerUtils'
 import { userContext } from '../../Context/userContext/userContext'
 import { AuthContext } from '../../Context/AuthContext/AuthContext'
-import Loading from '../../Components/Loader/Loading'
+import Loading from '../../Components/loader/loading'
+
 
 function Home() {
 
   const{postState,postDispatch} = useContext(postContext)
-  
+  const [loading,setLoading] = useState(true)
   const{posts,sort} = postState
   const{userProfile} = useContext(AuthContext)
   const {getMainUser,userState}=useContext(userContext)
@@ -33,13 +34,17 @@ function Home() {
   const trending = sort === "trending"
   useEffect(()=>{
     getMainUser(_id)
+    setLoading(false)
   },[])
   
 
 
   return (
+    
     <div className='main-container-home'>
-       <section className='navigation'>
+      {loading?<Loading/>:
+      <>
+      <section className='navigation'>
         <Navigation/>
        </section>
        <main>
@@ -47,8 +52,8 @@ function Home() {
        <div className='filter-btn'>
        <h2>Latest Posts</h2> 
        <div className='filter-btn'> 
-       <div className='sort-btn button' onClick={()=> postDispatch({type:"SORTING",payload:"trending"})} style={{boxShadow:trending?"0 0 5px 4px orange":""}}><FontAwesomeIcon icon={faBurn} color='blue' /> Trending </div> 
-       <div className='sort-btn button' onClick={()=> postDispatch({type:"SORTING",payload:"latest"})} style={{boxShadow:sort === "latest"?"0 0 5px 4px orange":""}}><FontAwesomeIcon icon={faList} color='blue' /> latest </div>
+       <div className='sort-btn button' onClick={()=> postDispatch({type:"SORTING",payload:"trending"})} style={{boxShadow:trending?"0 0 2px 4px orange":""}}><FontAwesomeIcon icon={faBurn} color='blue' /> Trending </div> 
+       <div className='sort-btn button' onClick={()=> postDispatch({type:"SORTING",payload:"latest"})} style={{boxShadow:sort === "latest"?"0 0 2px 4px orange":""}}><FontAwesomeIcon icon={faList} color='blue' /> latest </div>
        </div>
        </div>
        <div className="main-feed">
@@ -58,7 +63,8 @@ function Home() {
        <section>
            <Suggestions/>
        </section>
-       
+       </>
+  }
     </div>
   )
 }

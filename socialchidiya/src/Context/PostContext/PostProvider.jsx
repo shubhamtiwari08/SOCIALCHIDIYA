@@ -192,7 +192,7 @@ function PostProvider({children}) {
 
 
   return (
-    <postContext.Provider value={{edit,setEdit,editPost,deletePost,postState,createToggle,setCreateToggle,postDispatch,createPost,getDetailedPost,singlePost,LikePost,dislikePost,removeBookmarkPost,addBookmarkPost }}>
+    <postContext.Provider value={{edit,getPost,setEdit,editPost,deletePost,postState,createToggle,setCreateToggle,postDispatch,createPost,getDetailedPost,singlePost,LikePost,dislikePost,removeBookmarkPost,addBookmarkPost }}>
     {children}
     </postContext.Provider>
   )
