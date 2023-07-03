@@ -37,6 +37,7 @@ function FeedPost({feedData}) {
   const clipboard = new Clipboard('.copy-button', {
     text: function() {
       return `localhost:3000/home/${_id}`;
+      
     }
   });
 
@@ -89,6 +90,10 @@ function FeedPost({feedData}) {
     console.log("yet to be done")
   }
 
+  const handleShare =()=>{
+    toast.success("succesfully copied link !! share the pose")
+  }
+
 
   useEffect(()=>{
     setLoading(false)
@@ -123,7 +128,7 @@ function FeedPost({feedData}) {
        <div className="action-btns" >
           <div className="like-button" onClick={()=>isLogged?handleLike(_id):loginFirst()}>{likedByUser()?<FontAwesomeIcon icon={faHeart} color='red' />:<FontAwesomeIcon icon={faHeart} color='blue' />} {likes?.likeCount}</div>
           <div className="comment-button" onClick={()=>isLogged?handleComment():loginFirst()}><FontAwesomeIcon icon={faComment} color='blue'/>{comments?.length>0?comments?.length:""}</div>
-          <div className="copy-button"><FontAwesomeIcon icon={faShare} color='blue' /></div>
+          <div className="copy-button" onClick={()=> handleShare()}><FontAwesomeIcon icon={faShare} color='blue' /></div>
           <span className='bookmark-btn' onClick={()=>handleBookmark(_id)}>{bookmarkedByUser()?<FontAwesomeIcon icon={faBookmark} color='grey' />:<FontAwesomeIcon icon={faBookmark} color='blue' />}</span>
           
        </div>

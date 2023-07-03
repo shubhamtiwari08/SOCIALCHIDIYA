@@ -19,10 +19,12 @@ function Navigation() {
 
   return (
     <div>
-    {createToggle && <div className="create-post-pop-up" > <div className="background" onClick={()=> setCreateToggle(!createToggle)}></div><div className="input-area"><CreatePostPopUp/></div></div>}
+    {createToggle && <div className="create-post-pop-up" > 
+    <div className="background" onClick={()=> setCreateToggle(!createToggle)}></div>
+    <div className="input-area"><CreatePostPopUp/></div>
+    </div>}
       <div className="navigation-links">
          <ul>
-
             <li>
             <FontAwesomeIcon icon={faHome} style={{ color: 'blue' }} />
             <NavLink to='/home' activeClassName="active" className="nav-link">Home</NavLink>

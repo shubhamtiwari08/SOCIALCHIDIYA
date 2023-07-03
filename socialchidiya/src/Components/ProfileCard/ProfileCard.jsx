@@ -43,7 +43,7 @@ function ProfileCard({profileUsername,userId}) {
     <div className='profileCard-main-container'>
     
     <div className='profile-img' style={{borderRadius:"50%",width:`80px`,height:`80px`,overflow:"hidden"}}>
-      <img src={avatarUrl} alt="profile" style={{objectFit:"cover"}} />
+      <img src={avatarUrl} alt="profile"  />
     </div>
     <h1>{`${firstName} ${lastName}`}</h1>
     <p>@{username}</p>

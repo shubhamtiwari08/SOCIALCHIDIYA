@@ -5,17 +5,17 @@
 }
 
 .update-container{
-    position: absolute;
+    position: fixed;
     background-color: white;
     z-index: 9;
-    top: 0;
+    top: 15rem;
 }
 
 .back-container{
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.505);
-    position: absolute;
-    top: -30rem;
-    left:-34rem ;
+    position: fixed;
+    top: 0rem;
+    left:0rem ;
 }

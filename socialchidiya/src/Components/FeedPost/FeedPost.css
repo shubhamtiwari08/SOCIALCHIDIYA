@@ -2,6 +2,7 @@
     padding: 1rem 0rem 1rem 1rem;
     border: 1px solid  black;
     margin: 5px;
+    width: 38rem;
     
 }
 
@@ -36,7 +37,7 @@
 .action-btns{
     color:darkblue;
     font-size: small;
-    width: 53.2rem;
+    width: 36rem;
     padding: 0.5rem;
     height: 3rem;
     display: flex;
@@ -52,8 +53,7 @@
     cursor: pointer;
     margin: 1rem 0rem;
     word-wrap: break-word;
-    font-size: large;
-    width: 49rem;
+    width: 35rem;
     text-align: start;
 }
 

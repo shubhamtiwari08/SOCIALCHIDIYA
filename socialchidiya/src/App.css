@@ -8,13 +8,21 @@
 }
 
 .nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 4rem;
+  padding-right: 1rem;
   background-color: #61dafb;
-  text-align: center;
+  text-align: start;
   position: fixed;
   width: 100vw;
   top: 0;
   z-index: 22;
+}
+
+.nav button{
+  padding: 0.4rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {

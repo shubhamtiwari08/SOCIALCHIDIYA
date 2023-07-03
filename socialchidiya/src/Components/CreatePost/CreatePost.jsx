@@ -29,8 +29,8 @@ function CreatePost({editOption,postId}) {
     category:""
   })
 
-  console.log(editOption, "optino")
-  
+ 
+  console.log(singlePost?.content)
   
 
 

@@ -35,7 +35,7 @@ function Suggestions() {
 
   return (
     <div className='follow-main-container'>
-       <div className="search-follow"><input type="text" placeholder='Search Posts,People,Anything' onChange={(e)=>handleSearch(e)} /></div>
+       <div className="search-follow"><input type="text" placeholder='Search People...' onChange={(e)=>handleSearch(e)} /></div>
 
        <div className="followers"><p><span>who to follow</span></p> {displaySuggestion?.map(item =><Follow data={item}/>)} </div>   
     </div>

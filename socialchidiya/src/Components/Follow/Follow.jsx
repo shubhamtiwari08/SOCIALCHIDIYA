@@ -22,7 +22,7 @@ function Follow({data}) {
       <div className="name" onClick={()=>Navigate(`/thirdprofile/${_id}`)}>
       <div className="name-container">
       <p>{firstName + " " + lastName}</p>
-      <p style={{fontSize:"5px",color:"grey"}}>@{username}</p>
+      <p style={{fontSize:"10px",color:"grey"}}>@{username}</p>
       </div> 
       </div>
       

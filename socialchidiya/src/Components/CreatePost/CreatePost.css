@@ -7,7 +7,7 @@
 
 .create-post-main-container{
     margin: 5px;
-    width: 57rem;
+    width: 38rem;
     height: 15rem;
     border: 1px solid black;   
     background-color: white; 
@@ -43,6 +43,7 @@
 }
 
 textarea{
+    width: 30rem;
     height: 8rem;
     background-color: var(--color-secondary);
     
