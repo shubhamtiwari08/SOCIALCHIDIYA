@@ -17,11 +17,10 @@
 .content-main-box{
     width: 60%;
     height: 80%;
-
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     grid-template-rows: 1fr ;
-    box-shadow: 0 0  10px 1px rgba(0, 0, 0, 0.26);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
 
 .content-container{
@@ -56,6 +55,7 @@
     font-stretch: extra-expanded;
     text-shadow: 1px 2px 2px black;
     background-color: var(--color-secondary);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 

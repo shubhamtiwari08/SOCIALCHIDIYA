@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Signup.css'
 import { useNavigate } from 'react-router'
+import { NavLink } from 'react-router-dom'
 
 function SignUp() {
 
@@ -47,7 +48,6 @@ function SignUp() {
   return (
   <div className="signup-maincontainer">
     <div className='signUp-container'>
-    <h2>The social Chidiya</h2>
     <h2>Sign Up</h2>
     <form onSubmit={handleSignUp}>
   <label for="fullname">Full Name:</label><br/>
@@ -67,6 +67,7 @@ function SignUp() {
 
   <input type="submit" value="Sign Up"/>
     </form>
+    <p style={{margin:"1rem"}}>already signed in ? <NavLink to="/login">login</NavLink></p>
     </div>    
     </div>
   )

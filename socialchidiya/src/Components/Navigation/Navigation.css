@@ -6,7 +6,7 @@
     flex-direction: column;
     align-items: center;
     padding: 2rem;
-    box-shadow: 0 0 5px 1px gray;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
     margin: 5rem 0 0 1rem;
     position: fixed;
     z-index: 0;
@@ -42,6 +42,7 @@
 .nav-link.active{
     background-color:var(--color-secondary);
     padding: 0.5rem 1rem;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .navigation-links button{

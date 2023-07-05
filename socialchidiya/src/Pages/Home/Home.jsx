@@ -53,8 +53,8 @@ function Home() {
        <div className='filter-btn'>
        <h2>{sort.toUpperCase()} Posts</h2> 
        <div className='filter-btn'> 
-       <div className='sort-btn button' onClick={()=> postDispatch({type:"SORTING",payload:"trending"})} style={{boxShadow:trending?"0 0 2px 4px pink":""}}><FontAwesomeIcon icon={faBurn} color='blue' /> Trending </div> 
-       <div className='sort-btn button' onClick={()=> postDispatch({type:"SORTING",payload:"latest"})} style={{boxShadow:sort === "latest"?"0 0 2px 4px pink":""}}><FontAwesomeIcon icon={faList} color='blue' /> latest </div>
+       <div className='sort-btn button' onClick={()=> postDispatch({type:"SORTING",payload:"trending"})} style={{backgroundColor:sort === "trending"?"var(--color-secondary)":"",color:sort==="trending"?"var(--color-primary)":""}}><FontAwesomeIcon icon={faBurn} color='blue' /> Trending </div> 
+       <div className='sort-btn button' onClick={()=> postDispatch({type:"SORTING",payload:"latest"})} style={{backgroundColor:sort === "latest"?"var(--color-secondary)":"",color:sort==="latest"?"var(--color-primary)":""}}><FontAwesomeIcon icon={faList} color='blue' /> latest </div>
        </div>
        </div>
        <div className="main-feed">

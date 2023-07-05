@@ -1,5 +1,5 @@
 .follow-main-container{
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.303);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     padding: 1rem;
     position: fixed;
     right: 0;
@@ -10,8 +10,9 @@
     width: 25rem;
     height: 3rem;
     padding: 1rem;
+    border: none;
     margin-bottom: 1rem;
-    border: 1px solid blue;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: var(--color-secondary);
 }
 
@@ -19,7 +20,7 @@
 
 .followers{
     width: 25rem;
-    border: 1px solid black;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 1rem;
 }
 

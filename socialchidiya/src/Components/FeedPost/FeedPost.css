@@ -1,6 +1,6 @@
 .feed-post-main-container{
     padding: 1rem 0rem 1rem 1rem;
-    border: 1px solid  black;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin: 0.5rem 1rem 0 0;
     width: 38rem;
     
