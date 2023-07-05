@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { postContext } from '../../Context/PostContext/PostProvider'
 
 function OptionPopUp({id,toggle,editOption}) {
-    const {deletePost} = useContext(postContext)
+    const {deletePost,getDetailedPost} = useContext(postContext)
     const{option,setOption}= toggle
     const {viewEdit,setViewEdit} = editOption
 
@@ -14,9 +14,11 @@ function OptionPopUp({id,toggle,editOption}) {
     }
 
     const handleEdit=(id)=>{
+          getDetailedPost(id)
           setViewEdit(!viewEdit)
           setOption(!option)
         }
+    
 
   return(
     <div className="pop-out-menu">

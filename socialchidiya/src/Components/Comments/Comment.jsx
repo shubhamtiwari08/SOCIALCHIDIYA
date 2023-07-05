@@ -8,7 +8,7 @@ import { userContext } from '../../Context/userContext/userContext'
 function Comment({commentData,postUsername}) {
     console.log(commentData)
     const {userState} = useContext(userContext)
-    
+  
     const {allUsers}= userState
     const profileUrl = allUsers.find(user=> user.username.includes(commentData?.username)).avatarUrl
   return (
@@ -17,17 +17,17 @@ function Comment({commentData,postUsername}) {
     <ProfileCircle url={profileUrl}/>
     <div className="comment-profile">
       <p><span>{commentData?.username}</span><span> @{commentData?.username}</span></p>
-      <p>replying to @{postUsername}</p>
+      <p style={{color:"red"}}>replying to @{postUsername}</p>
     </div>
     </div>
     <p className='comment-content'>{commentData?.text}</p>
-      <div className="action-btns action-btn-post">
+    {/*<div className="action-btns action-btn-post">
       <FontAwesomeIcon icon={faHeart} color='blue'/>
       <FontAwesomeIcon icon={faComment} color='blue'/>
       <FontAwesomeIcon icon={faShare} color='blue'/>
-      <FontAwesomeIcon icon={faBookmark} color='blue'/>
-   </div>
-              
+  <FontAwesomeIcon icon={faBookmark} color='blue'/>
+   </div>*/}
+       <hr />       
     </div>
   )
 }

@@ -7,6 +7,7 @@ import FeedPost from '../FeedPost/FeedPost'
 import EditProfile from '../EditProfilePopUp/EditProfile'
 import { users } from '../../backend/db/users'
 import { useNavigate } from 'react-router'
+import { NavLink } from 'react-router-dom'
 
 function ProfileCard({profileUsername,userId}) {
   const [editProfile,setEditProfile]=useState(false)
@@ -49,7 +50,7 @@ function ProfileCard({profileUsername,userId}) {
     <p>@{username}</p>
     {ifAuthUser?(<button className='button' onClick={()=>setEditProfile(!editProfile)}>Edit profile</button>):isLogged?(ifFollowing?.length===1?<button className='button' onClick={()=>unFollowUser(userId)}>unFollow</button>:<button className='button' onClick={()=>followUser(userId)}>Follow</button>):<button onClick={()=>navigate("/login")}>Follow</button>}
     <p>{bio}</p>
-    <p>{website}</p>
+    <a href={website} target='_blank'>{website}</a>
     <div className="Reach-count">
        <p>0</p>
        <p>{following?.length}</p>

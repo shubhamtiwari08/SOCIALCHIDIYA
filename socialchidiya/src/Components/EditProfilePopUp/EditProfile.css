@@ -9,23 +9,25 @@
 
 .main-editProfile-container h1{
     padding: 1rem;
+    color: var(--color-primary);
+    text-shadow: 2px 2px black;
 }
 .main-editProfile-container{
     width: 30rem;
     padding: 3rem 4rem 3rem 3rem;
-    position: absolute;
+    position: fixed;
     top: 20rem;
     right: 45rem;
     z-index: 99;
-    background-color: white;
+    background-color: var(--color-secondary);
 }
 
 .background-profile{
         background-color: rgba(0, 0, 0, 0.37);
         width: 100vw;
         height: 100vh;
-        position: absolute;
-        left: -40rem;
-        top: -20rem;
+        position:fixed;
+        left: 0rem;
+        top: 0rem;
         z-index: -1;
 }

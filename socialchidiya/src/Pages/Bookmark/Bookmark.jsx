@@ -31,7 +31,7 @@ function Bookmark() {
           <Navigation/>
     </section>
        <main>
-       <h2>Bookmark</h2>
+       <h2>{postState?.bookmarked.length === 0 ? "No bookmarked posts":"Bookmark"}</h2>
        <div className="main-feed">
        {postState?.bookmarked.map(post => <FeedPost feedData={post}/>)}
        </div>

@@ -32,6 +32,7 @@ function Home() {
   } )
 
   const trending = sort === "trending"
+
   useEffect(()=>{
     getMainUser(_id)
     setLoading(false)
@@ -50,10 +51,10 @@ function Home() {
        <main>
        <CreatePost/>
        <div className='filter-btn'>
-       <h2>Latest Posts</h2> 
+       <h2>{sort.toUpperCase()} Posts</h2> 
        <div className='filter-btn'> 
-       <div className='sort-btn button' onClick={()=> postDispatch({type:"SORTING",payload:"trending"})} style={{boxShadow:trending?"0 0 2px 4px orange":""}}><FontAwesomeIcon icon={faBurn} color='blue' /> Trending </div> 
-       <div className='sort-btn button' onClick={()=> postDispatch({type:"SORTING",payload:"latest"})} style={{boxShadow:sort === "latest"?"0 0 2px 4px orange":""}}><FontAwesomeIcon icon={faList} color='blue' /> latest </div>
+       <div className='sort-btn button' onClick={()=> postDispatch({type:"SORTING",payload:"trending"})} style={{boxShadow:trending?"0 0 2px 4px pink":""}}><FontAwesomeIcon icon={faBurn} color='blue' /> Trending </div> 
+       <div className='sort-btn button' onClick={()=> postDispatch({type:"SORTING",payload:"latest"})} style={{boxShadow:sort === "latest"?"0 0 2px 4px pink":""}}><FontAwesomeIcon icon={faList} color='blue' /> latest </div>
        </div>
        </div>
        <div className="main-feed">

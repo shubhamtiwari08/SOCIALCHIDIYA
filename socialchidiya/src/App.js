@@ -24,7 +24,7 @@ function App() {
    <div>
    <div className="logo hero-word-two nav">
           <span className='logo-name hero-word'>SOCIAL CHIDIYA</span>
-          {isLogged&&<button className='button' onClick={()=>handleLogout()}> logout</button>}
+          {isLogged&&<button className='button logout-btn' onClick={()=>handleLogout()}> logout</button>}
       </div>    
    <Routing/>
    <ToastContainer/>

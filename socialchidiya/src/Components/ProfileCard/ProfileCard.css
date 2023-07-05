@@ -18,5 +18,15 @@
 .profile-img{
  position: relative;
  left: 15.9rem;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ overflow:hidden;
+ border:1px solid black;
+ object-fit:contain;
 }
 
+.profile-img img{
+    width: 6rem;
+    border-radius: 50%;
+}

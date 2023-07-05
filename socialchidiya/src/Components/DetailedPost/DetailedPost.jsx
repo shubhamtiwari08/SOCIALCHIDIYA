@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import './DetailedPost.css'
 import Profile from '../../Pages/Profile/Profile'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookmark, faComment, faHeart, faShare } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark, faHeart, faComment, faShareFromSquare } from '@fortawesome/free-regular-svg-icons'
 import ProfileCircle from '../Navigation/Profile/ProfileCircle'
 import PostProvider, { postContext } from '../../Context/PostContext/PostProvider'
 import { useParams } from 'react-router'
@@ -50,6 +50,8 @@ function DetailedPost() {
    const bookmarkedByUser = () =>{
       return bookmarked?.filter((postId)=> postId._id === singlePostId).length !==0
     }
+
+    console.log(bookmarkedByUser(), "check")
 
     const likedByUser = () =>{
       return singlePost?.likes?.likedBy?.filter((userId)=> userId._id === mainUser?._id).length !==0
@@ -112,15 +114,17 @@ function DetailedPost() {
       <hr />
       </div>
       <div className="action-btns action-btn-post">
-      <div onClick={()=>handleLike(singlePostId)} className="like-button"  >{likedByUser()?<FontAwesomeIcon icon={faHeart} color='red'  />:<FontAwesomeIcon icon={faHeart} color='blue'  />} {singlePost?.likes?.likeCount}</div>                                                                       
+      <div onClick={()=>handleLike(singlePostId)} className="like-button"  >{likedByUser()?<FontAwesomeIcon icon="heart" color='red'  />:<FontAwesomeIcon icon={faHeart} color='blue'  />} {singlePost?.likes?.likeCount}</div>                                                                       
       <div className="comment-button"><FontAwesomeIcon icon={faComment} color='blue'/></div>
-      <div className="copy-button"><FontAwesomeIcon icon={faShare} color='blue'/></div>
+      <div className="copy-button"><FontAwesomeIcon icon={faShareFromSquare} color='blue'/></div>
       
-      <span className='bookmark-btn' onClick={()=>handleBookmark(singlePost?._id)}>{bookmarkedByUser()?<FontAwesomeIcon icon={faBookmark} color='grey' />:<FontAwesomeIcon icon={faBookmark} color='blue' />}</span>
+      <span className='bookmark-btn' onClick={()=>handleBookmark(singlePost?._id)}>{bookmarkedByUser()?<FontAwesomeIcon icon="bookmark" color='blue' />:<FontAwesomeIcon icon={faBookmark} color='blue' />}</span>
    </div>
    <hr />
    {isLogged?<div className="comment">
+     <div className="avatar-circle">
      <ProfileCircle url={avatarUrl}/>
+     </div>
      <input type="text" placeholder='comment your reply'/>
      <button className='button post-btn' > Post </button>
    </div>:""}
