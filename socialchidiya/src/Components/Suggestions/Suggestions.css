@@ -29,3 +29,8 @@
     font-weight: bold;
 }
 
+@media screen and (max-width: 480px) and (orientation: portrait) {
+   .follow-main-container{
+    display: none;
+   }    
+}

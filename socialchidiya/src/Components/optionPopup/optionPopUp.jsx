@@ -21,10 +21,13 @@ function OptionPopUp({id,toggle,editOption}) {
     
 
   return(
+    <>
     <div className="pop-out-menu">
            <button onClick={()=> handleEdit(id)}>Edit</button>
            <button onClick={()=>handleDelete(id)}>Delete</button>
     </div>
+    <div className='background-option' onClick={()=>setOption(!option)}></div>
+    </>
   )
 }
 

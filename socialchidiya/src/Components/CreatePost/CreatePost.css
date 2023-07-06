@@ -45,6 +45,8 @@ textarea{
     width: 30rem;
     height: 8rem;
     background-color: var(--color-secondary);
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    border: none;
     
 }
 
@@ -52,5 +54,12 @@ textarea:focus{
     outline:2px solid blue;
 }
 
+
+@media screen and (max-width: 480px) and (orientation: portrait) {
+     .create-post-main-container{
+        width: 28rem;
+        height: 15rem;
+     }       
+}
 
 

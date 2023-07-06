@@ -1,15 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { userContext } from '../../Context/userContext/userContext'
 import ProfileCircle from '../Navigation/Profile/ProfileCircle'
 import './EditProfile.css'
 import { toast } from 'react-toastify'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCamera } from '@fortawesome/free-solid-svg-icons'
 
 function EditProfile({editToggle}) {
 
     const {userState,editUser,getUser}=useContext(userContext)
     const {avatarUrl,bio,firstName,lastName,username,website}= userState.authUser
-    
-    
+    const imageInputRef = useRef(null)
+     
+    const [selectImage,setSelectedImage] = useState("")
     const [profileContent,setProfileContent] = useState({
         avatarUrl,
         username,
@@ -19,14 +22,24 @@ function EditProfile({editToggle}) {
         bio,
     })
     
+const handleImageClick=()=>{
+   imageInputRef.current.click()
+}
 
 
 
 const handleInput=(e)=>{
-    const name = e.target.name
-    const value = e.target.value 
+  let value = ""
+  const name = e.target.name
+  if(e.target.files){
+     setSelectedImage(URL.createObjectURL(e.target.files[0]))
+     value = URL.createObjectURL(e.target.files[0])
+     setProfileContent({...profileContent,[name]:value})
+  }else{
+    value = e.target.value
     setProfileContent({...profileContent,[name]:value})
-  console.log(profileContent)
+    console.log(profileContent, "new dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+}
 }
 
 const handleSubmit =(e)=>{
@@ -34,6 +47,7 @@ const handleSubmit =(e)=>{
     editUser(profileContent)
     editToggle.setEditProfile(!editToggle.editProfile)
     toast.success("Details updated")
+    console.log(userState?.authUser?.avatarUrl,"checkkkkkkkkkkkkkkkkkkkkkkkkkkk")
 }
 
 
@@ -43,11 +57,12 @@ const handleSubmit =(e)=>{
     <div className='main-editProfile-container'>
      <div className="background-profile" onClick={()=>(editToggle.setEditProfile(!editToggle.editProfile))}></div>
      <div className="outer-edit-container">
-     <h1>edit Profile</h1>
-     <form onSubmit={handleSubmit}>
+     <h1>Edit Profile</h1>
+     <form onSubmit={handleSubmit} encType='multipart/form-data'>
      <div className="edit-container">
       <p>avatar</p>
-      <p><ProfileCircle url={userState?.authUser?.avatarUrl}/></p>
+      <input type="file" name='avatarUrl' accept="image/*"  ref={imageInputRef}  onChange={handleInput} style={{display:"none"}}/>
+      <p><ProfileCircle url={selectImage?selectImage:userState?.authUser?.avatarUrl}/>  <FontAwesomeIcon icon={faCamera} onClick={handleImageClick} /> </p>
       <p>FirstName</p>
       <p>{profileContent.firstName}</p>
       <p>LastName</p>
@@ -61,9 +76,7 @@ const handleSubmit =(e)=>{
      </div>
      <button type='submit' className="button" >update</button>
      </form>
-     </div>
-     
-      
+     </div>  
     </div>
   )
 }

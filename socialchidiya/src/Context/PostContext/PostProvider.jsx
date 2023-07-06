@@ -112,7 +112,7 @@ function PostProvider({children}) {
                 }
             })
             const data = await response.json()
-            console.log(response, "respoooooooooooooooooooooooooonse")
+            
           if(response.status === 201){
             postDispatch({type:"SET_POST",payload:data.posts})
           }else{

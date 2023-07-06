@@ -19,7 +19,7 @@ const initialState = {
   bio: "Be yourself!",
   bookmarks: [],
   avatarUrl:
-    "https://randomuser.me/api/portraits/men/2.jpg",
+    "https://randomuser.me/api/portraits/men/9.jpg",
   website: "https://romabulani.netlify.app/",
   createdAt: "2022-01-01T10:55:06+05:30",
   updatedAt: "11-12-43",

@@ -4,10 +4,12 @@ import { AuthContext } from '../../Context/AuthContext/AuthContext'
 import { useLocation, useNavigate } from 'react-router'
 import { NavLink } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { userContext } from '../../Context/userContext/userContext'
 
 function Login() {
 
   const{isLogged,setIsLogged,userProfile,setUserProfile}= useContext(AuthContext)
+  const {userDispatch} = useContext(userContext)
   const Navigate = useNavigate()
   const location = useLocation()
 
@@ -19,11 +21,8 @@ function Login() {
   const handleInput=(e)=>{
     const name = e.target.name
     const value = e.target.value
-
     setLoginData({...loginData,[name]:value})
   }
-
-  console.log(loginData)
 
 const userLogin = async(loginData)=>{
    try {

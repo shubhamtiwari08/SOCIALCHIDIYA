@@ -79,3 +79,13 @@
 .image-container{
   background-color: var(--color-primary);
 }
+
+
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  .hero-word{
+    width: 13rem;
+    font-size: x-small;
+    letter-spacing: 0.2rem;
+    padding: 0.5rem;
+  }       
+}

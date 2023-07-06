@@ -58,8 +58,12 @@
     text-align: start;
 }
 
+.post-info img{
+   width: 30rem;
+   margin-top: 0.5rem;
+}
  
-
+/*option-pop-up*/
 
 .pop-out-btn{
     position: absolute;
@@ -75,22 +79,34 @@
     cursor: pointer;
 }
 
+
+
 .option-btns{
     position: absolute;
-    right: 5rem;
+    right: 0rem;
 }
 
+.background-option{
+    background-color: transparent;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
   
 .pop-out-menu {
-    position: absolute;
-    padding: 2rem 0rem 1rem 2rem;
-    border: 1px solid black;
+    position: sticky;
+    padding: 1rem 1rem 1rem 2rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     z-index: 2;
     background-color: white;
   }
 
 .pop-out-menu button{
-    border: 1px solid black;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border: none;
+    border: 1px solid var(--color-secondary);
     color: var(--color-secondary);
     padding: 0.5rem;
     background-color: var(--color-primary);
@@ -105,3 +121,20 @@
 }
 
 
+@media screen and (max-width:480px) {
+    .feed-post-main-container{
+        width: 28rem;
+    }   
+
+    .post-info{
+        width: 20rem;
+    }
+    
+    .post-info img{
+       width: 20rem;
+    }
+
+    .action-btns{
+        width: 25rem;
+    }
+}

@@ -18,6 +18,7 @@
 .profile-img{
  position: relative;
  left: 15.9rem;
+ margin: 1rem;
  display: flex;
  justify-content: center;
  align-items: center;
@@ -29,4 +30,11 @@
 .profile-img img{
     width: 6rem;
     border-radius: 50%;
+}
+
+@media screen and (max-width:480px) {
+    .profile-img{
+        left: 10rem;
+        margin: 0.5rem;
+    }   
 }

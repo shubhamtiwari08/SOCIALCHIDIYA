@@ -90,6 +90,49 @@
 .input-area{
     position: fixed;
     z-index: 999;
-    top: 20rem;
-    left: 28.5rem;
+    top: 23rem;
+    left: 40.5rem;
+}
+
+.mobile-navigation-links{
+    display: none;
+}
+
+
+@media screen and (max-width: 425px) and (orientation: portrait) {
+ .navigation-links{
+    display: none;
+ }      
+
+ .mobile-navigation-links{
+    position: fixed;
+    width: 30rem;
+    height: 3rem;
+    left: 0.5rem;
+    background-color: white;
+    bottom: 0;
+    z-index: 99;
+    padding: 1rem;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+ }
+
+ .mobile-navigation-links ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+ }
+
+ .mobile-navigation-links button{
+    position: fixed;
+    right: 1.4rem;
+    bottom: 4rem;
+    padding: 1rem;
+ }
+
+ .input-area{
+    top: 10rem;
+    left: 1.5rem;
+ }
+
 }

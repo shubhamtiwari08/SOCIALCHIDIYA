@@ -21,7 +21,7 @@ function FeedPost({feedData}) {
   const [viewEdit,setViewEdit] = useState(false)
   const [option,setOption] = useState(false)
   const [loading,setLoading] = useState(true)
-  const {_id,content,mediaUrl,likes,comments,username} = feedData
+  const {_id,content,mediaURL,likes,comments,username} = feedData
   const {getDetailedPost,edit,setEdit,addBookmarkPost,removeBookmarkPost,deletePost,LikePost,dislikePost,postState} = useContext(postContext)
   const {userState} = useContext(userContext)
   const {isLogged} = useContext(AuthContext)
@@ -30,7 +30,7 @@ function FeedPost({feedData}) {
 
   const mainUser = userState.authUser
   const {allUsers}= userState
-  const profileUrl = allUsers.find(user=> user.username.includes(username)).avatarUrl
+  const profileUrl = mainUser?.avatarUrl
 
   const {bookmarked} = postState
 
@@ -121,6 +121,7 @@ function FeedPost({feedData}) {
           </div>
           <div className="post-info" onClick={()=>handleSinglePost(_id)}>
             {content}
+            {mediaURL ? <img src={mediaURL} alt={content} />:""}
           </div>
           {viewEdit && <EditPopUp editOption={{viewEdit,setViewEdit}} postId={_id}/>}
         </div>

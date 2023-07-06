@@ -43,3 +43,9 @@
     border: none;
     padding: 0.5rem;
 }
+
+@media screen and (max-width:480px) {
+    .main-content{
+        font-size: large;
+    }
+}
