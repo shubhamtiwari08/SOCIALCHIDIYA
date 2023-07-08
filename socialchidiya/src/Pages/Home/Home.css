@@ -78,6 +78,11 @@ main{
   } 
 
   main{
+    margin-top: 10rem ;
     width: 30rem;
+  }
+
+  .sort-btn{
+   font-size: small;   
   }
 }

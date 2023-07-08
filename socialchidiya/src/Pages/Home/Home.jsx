@@ -33,9 +33,19 @@ function Home() {
 
   const trending = sort === "trending"
 
+
+  const trial  = async()=>{
+    const response = await fetch("/api/posts/page/1")
+    const data = await response.json()
+
+    console.log(response , data , "test")
+  }
+
+
   useEffect(()=>{
     getMainUser(_id)
     setLoading(false)
+    trial()
   },[])
   
 

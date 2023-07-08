@@ -8,11 +8,14 @@ import EditPopUp from '../EditPopUp/EditPopUp'
 import { AuthContext } from '../../Context/AuthContext/AuthContext'
 import { toast } from 'react-toastify'
 import { userContext } from '../../Context/userContext/userContext'
+import Emoji from './Emoji'
+
 
 
 
 function CreatePost({editOption,postId,singlePost}) {
   const [textareaToggle,setTextareaToggle]=useState(false)
+  const [emojiToggle,setEmojiToggle] = useState(false)
   const {createPost,editPost,createToggle,setCreateToggle} = useContext(postContext)
   const {userProfile}=useContext(AuthContext)
   const {userState} = useContext(userContext)
@@ -42,20 +45,36 @@ function CreatePost({editOption,postId,singlePost}) {
 
   
   const handleInput = (e)=>{
-    const name = e.target.name
+    console.log("handleinputdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    let name = ""
+    let textAndEmoji=""
     let value =""
-    if(e.target.files){
+    if(e.target?.files !== undefined){
+      name=e.target.name
        setSelectedImage(URL.createObjectURL(e.target.files[0]))
        value = URL.createObjectURL(e.target.files[0])
        console.log("files")
        setNewPostData({...newPostData,[name]:value})
     }else{
+      let emojiValue =""
+      if(e.unified){
+        name = "content"
+        console.log("emoji fun")
+      const unicode = e.unified.split("_")
+        const codeArray = []
+      unicode.forEach((el)=>codeArray.push("0x"+ el))
+      emojiValue = String.fromCodePoint(...codeArray)
+      setNewPostData({...newPostData,[name]:newPostData.content + emojiValue})
+      }else{
+      
       console.log("else")
-       value = e.target.value
-       setNewPostData({...newPostData,[name]:value})
+      console.log(emojiValue,"value emoji")
+      name=e.target.name 
+      value = e.target.value
+      setNewPostData({...newPostData,[name]:value + emojiValue})
+      }
     }
     console.log(selectImage)
-    
     console.log(newPostData)
   }
 
@@ -74,6 +93,9 @@ function CreatePost({editOption,postId,singlePost}) {
    }
     if(createToggle ){
     setCreateToggle(!createToggle)
+   }
+   if(emojiToggle===true){
+    setEmojiToggle(!emojiToggle)
    }
    
   }
@@ -102,7 +124,7 @@ function CreatePost({editOption,postId,singlePost}) {
     <div className="btns">
     <div className="add-btns">
     <div className="icon-btns">
-    <FontAwesomeIcon icon={faSmile} style={{ color: 'blue' }} />
+    <FontAwesomeIcon icon={faSmile} style={{ color: 'blue' }} onClick={()=>setEmojiToggle(!emojiToggle)} />
     <label htmlFor="image-input"  style={{cursor:"pointer"}} >
     <FontAwesomeIcon icon={faImage} style={{ color: 'blue' }} onClick={handleImageClick}  />
     </label>
@@ -113,6 +135,10 @@ function CreatePost({editOption,postId,singlePost}) {
     </div>
     </div>
     </form>
+    <div className="emoji-container">
+     {emojiToggle&&<Emoji handleInput={handleInput}/>}
+    </div>
+    
     </div>
   )
 }

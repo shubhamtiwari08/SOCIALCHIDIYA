@@ -10,3 +10,17 @@
   padding: 0.5rem;
 }
 
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  .Follow-container{
+    margin-top: 0rem;
+  }
+
+  .Follow-container button{
+    padding: 0.3rem;
+  }
+
+  .follow-heading{
+    font-size: small;
+    text-align: start;
+  }
+}

@@ -25,12 +25,35 @@
 }
 
 .followers span{
-    margin: 2rem; 
     font-weight: bold;
+}
+
+.mobile-follow-container{
+    background-color: white;
+    height: 10rem;    
+    overflow: hidden;
+    display: none;
 }
 
 @media screen and (max-width: 480px) and (orientation: portrait) {
    .follow-main-container{
     display: none;
    }    
+
+   .mobile-follow-container{
+    display: block ;
+    position: absolute;
+    width: 25rem;
+    height: 3rem;
+    left: 10%;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+   }
+
+   .toggle-follow{
+    height: 12rem;
+   }
+
+   .mobile-follow-container p{
+    text-align: start;
+   }
 }

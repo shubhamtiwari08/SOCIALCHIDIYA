@@ -30,7 +30,7 @@ function FeedPost({feedData}) {
 
   const mainUser = userState.authUser
   const {allUsers}= userState
-  const profileUrl = mainUser?.avatarUrl
+  
 
   const {bookmarked} = postState
 
@@ -45,6 +45,7 @@ function FeedPost({feedData}) {
   const userId = thirdUser._id
   const firstName = thirdUser.firstName
   const lastName = thirdUser.lastName
+  const profileUrl = thirdUser?.avatarUrl
 
   const Navigate = useNavigate()
   const handleSinglePost = (id)=>{
@@ -60,6 +61,7 @@ function FeedPost({feedData}) {
   const likedByUser = () =>{
     return likes?.likedBy?.filter((userId)=> userId._id === mainUser?._id).length !==0
   }
+
 
   
   const handleBookmark = (id)=>{

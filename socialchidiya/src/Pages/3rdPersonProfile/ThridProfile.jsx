@@ -21,6 +21,8 @@ function ThirdProfile() {
   const thirdUser = userState.thirdUser
   const personalPost = postState.posts.filter((post)=>post.username.includes(thirdUser?.username))
   const thirdUsername = thirdUser?.username 
+  const avatarUrl = thirdUser?.avatarUrl
+  const authUserUrl = userState?.avatarUrl
 
 
   useEffect(()=>{
@@ -29,7 +31,7 @@ function ThirdProfile() {
   },[thirdUsername]) 
 
   
-  console.log(personalPost,"personalllllllllllllllllllllllllllllll")
+  
 
   return (
     <div className='main-container-home'>
@@ -37,7 +39,7 @@ function ThirdProfile() {
           <Navigation/>
        </section>
        <main>
-       <ProfileCard profileUsername={thirdUsername} userId={userId}/>
+       <ProfileCard profileUsername={thirdUsername} userId={userId} avatarUrl={avatarUrl || authUserUrl}/>
        </main>
        <section>
            <Suggestions/>

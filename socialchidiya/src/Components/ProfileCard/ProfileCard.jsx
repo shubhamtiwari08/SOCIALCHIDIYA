@@ -9,7 +9,7 @@ import { users } from '../../backend/db/users'
 import { useNavigate } from 'react-router'
 import { NavLink } from 'react-router-dom'
 
-function ProfileCard({profileUsername,userId}) {
+function ProfileCard({profileUsername,userId,avatarUrl}) {
   const [editProfile,setEditProfile]=useState(false)
   const {isLogged} = useContext(AuthContext)
   const {postState} = useContext(postContext)
@@ -22,7 +22,6 @@ function ProfileCard({profileUsername,userId}) {
   const following = userState.thirdUser?.firstName
   const lastName = userState.thirdUser?.lastName
   const firstName = userState.thirdUser?.firstName
-  const avatarUrl = userState.thirdUser?.avatarUrl
   const username = userState.allUsers.find(user=> user.username === profileUsername)?.username
   const website = userState.thirdUser?.website
 

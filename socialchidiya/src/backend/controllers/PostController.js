@@ -292,3 +292,13 @@ export const deletePostHandler = function (schema, request) {
     );
   }
 };
+
+export const getLatestPagedPosts = function (schema, request) {
+  const { pageNum } = request.params;
+
+  const latestPosts = this.db.posts.sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  );
+  const paginatedPosts = latestPosts.slice(0, pageNum * 4 + 4);
+  return new Response(200, {}, { posts: paginatedPosts });
+};
