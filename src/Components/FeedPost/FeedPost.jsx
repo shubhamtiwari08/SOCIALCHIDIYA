@@ -36,7 +36,7 @@ function FeedPost({feedData}) {
 
   const clipboard = new Clipboard('.copy-button', {
     text: function() {
-      return `localhost:3000/home/${_id}`;
+      return `https://socialchidiya.vercel.app//home/${_id}`;
       
     }
   });
