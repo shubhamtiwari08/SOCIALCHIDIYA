@@ -68,7 +68,7 @@ function Home() {
        </div>
        </div>
        <div className="main-feed">
-       {personalFeed.map(post => <FeedPost feedData={post}/>)}
+       {personalFeed.length === 0? <h1>there are no posts to display</h1>:personalFeed.map(post => <FeedPost feedData={post}/>)}
        </div>
        </main>
        <section>

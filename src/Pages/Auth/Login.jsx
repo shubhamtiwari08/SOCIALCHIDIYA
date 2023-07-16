@@ -30,7 +30,7 @@ const userLogin = async(loginData)=>{
     method:"POST",
     body:JSON.stringify(loginData)
   })
-  console.log(response)
+  
   const data = await response.json()
   if(response.status === 200){
     setUserProfile(data.foundUser)
@@ -38,6 +38,7 @@ const userLogin = async(loginData)=>{
     setIsLogged(!isLogged)
     toast.success("logged in successfully")
     Navigate(location.state?.from?.pathname || "/home")
+    console.log(response,data)
   }else if(response.status === 404){
     toast.error("invalid email or password")
   }

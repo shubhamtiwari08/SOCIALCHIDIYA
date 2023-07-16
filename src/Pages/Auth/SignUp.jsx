@@ -1,17 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Signup.css'
 import { useNavigate } from 'react-router'
 import { NavLink } from 'react-router-dom'
+import { userContext } from '../../Context/userContext/userContext'
 
 function SignUp() {
 
+  const {userDispatch,userState} = useContext(userContext)
+
   const Navigate = useNavigate()
   const [user,setUser] = useState({
-    fullName:"",
+    firstName:"",
+    lastName:"",
     username:"",
     email:"",
     password:"",
     cPassword:"",
+    avatarUrl:"https://randomuser.me/api/portraits/men/2.jpg",
+    bio:"My bio"
   })
 
   const handleInput =(e)=>{
@@ -23,6 +29,7 @@ function SignUp() {
   const handleSignUp = (e)=>{
         e.preventDefault()
         signUpUser()
+        
   }
 
   const signUpUser = async ()=>{
@@ -32,6 +39,7 @@ function SignUp() {
         body:JSON.stringify(user)
       })
       const data = await response.json()
+       console.log(data)
       if(response.status === 201){
           Navigate('/login')
       }else{
@@ -50,8 +58,12 @@ function SignUp() {
     <div className='signUp-container'>
     <h2>Sign Up</h2>
     <form onSubmit={handleSignUp}>
-  <label for="fullname">Full Name:</label><br/>
-  <input type="text" id="fullName" name="fullName" value={user.fullName} onChange={handleInput} required/><br/>
+  <label for="firstName">First Name:</label><br/>
+  <input type="text" id="firstName" name="firstName" value={user.firstName} onChange={handleInput} required/><br/>
+
+  <label for="fristName">Last Name:</label><br/>
+  <input type="text" id="lastName" name="lastName" value={user.lastName} onChange={handleInput} required/><br/>
+
 
   <label for="username">Username:</label><br/>
   <input type="text" id="username" name="username" value={user.username} onChange={handleInput} required/><br/>

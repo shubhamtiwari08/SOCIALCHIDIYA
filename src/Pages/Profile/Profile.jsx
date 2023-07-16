@@ -10,15 +10,19 @@ import ProfileCard from '../../Components/ProfileCard/ProfileCard'
 import { AuthContext } from '../../Context/AuthContext/AuthContext'
 import Loading from '../../Components/loader/loading'
 import { userContext } from '../../Context/userContext/userContext'
+import { useParams } from 'react-router'
 
 function Profile() {
 
+  
   const [loading,setLoading] = useState(true)
   const {userProfile} = useContext(AuthContext)
   const {userState} = useContext(userContext)
   const avatarUrl = userState?.authUser?.avatarUrl
 
   console.log(avatarUrl)
+
+  
 
   useEffect(()=>{
     setLoading(false)
