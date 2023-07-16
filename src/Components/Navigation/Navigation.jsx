@@ -19,8 +19,10 @@ function Navigation() {
 
    const {username,firstName,lastName} = userProfile
 
+   console.log(userState?.authUser, "detailssssssssss check")
+
    const avatarUrl = userState?.authUser?.avatarUrl
-   console.log(userState, "initiaaaaaaaaaaaaaal")
+   console.log(userProfile, "initiaaaaaaaaaaaaaal")
 
   return (
     <div>

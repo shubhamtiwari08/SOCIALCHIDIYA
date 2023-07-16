@@ -11,19 +11,22 @@ import { NavLink } from 'react-router-dom'
 
 function ProfileCard({profileUsername,userId,avatarUrl}) {
   const [editProfile,setEditProfile]=useState(false)
-  const {isLogged} = useContext(AuthContext)
+  const {isLogged,userProfile} = useContext(AuthContext)
   const {postState} = useContext(postContext)
   const {userState,getUser,getThirdUser,followUser,unFollowUser}=useContext(userContext)
 
 
+  console.log(userProfile)
+  
   const thirdUser = userState.allUsers.find(user=> user.username === profileUsername)
-  const bio = userState.thirdUser?.bio
-  const followers = userState.thirdUser?.followers
-  const following = userState.thirdUser?.firstName
-  const lastName = userState.thirdUser?.lastName
-  const firstName = userState.thirdUser?.firstName
-  const username = userState.allUsers.find(user=> user.username === profileUsername)?.username
-  const website = userState.thirdUser?.website
+  const userCheck = thirdUser?.username === userProfile.username
+  const bio = userCheck ? userProfile?.bio : userState.thirdUser?.bio  
+  const followers = userCheck ? userProfile?.followers : userState.thirdUser?.followers
+  const following = userCheck ? userProfile?.following :userState.thirdUser?.following
+  const lastName = userCheck ? userProfile?.lastName:userState.thirdUser?.lastName 
+  const firstName = userCheck ? userProfile?.firstName : userState.thirdUser?.firstName
+  const username = userState.allUsers.find(user=> user.username === profileUsername)?.username ?? userProfile?.username 
+  const website = userCheck ? userProfile?.website : userState.thirdUser?.website
 
   const thirdUserPost = postState.posts.filter(post => post.username === username)
   const ifAuthUser = userState?.authUser?.username === username
@@ -33,6 +36,7 @@ function ProfileCard({profileUsername,userId,avatarUrl}) {
   console.log(ifFollowing?.length===1?"true":"false")
 
   console.log(ifAuthUser, username, "check")
+  console.log(userCheck)
 
   useEffect(()=>{
     getThirdUser(userId)
@@ -40,8 +44,7 @@ function ProfileCard({profileUsername,userId,avatarUrl}) {
 
 
   return (
-    <div className='profileCard-main-container'>
-    
+    <div className='profileCard-main-container'> 
     <div className='profile-img' style={{borderRadius:"50%",width:`80px`,height:`80px`,overflow:"hidden"}}>
       <img src={avatarUrl} alt="profile"  />
     </div>
@@ -59,7 +62,7 @@ function ProfileCard({profileUsername,userId,avatarUrl}) {
       <p>followers</p>  
     </div>
     <div className="main-feed">
-      {thirdUserPost.map(post => <FeedPost feedData={post}/>)}
+      {thirdUserPost.length === 0 ? <h1>there are no post to display</h1> : thirdUserPost.map(post => <FeedPost feedData={post}/>)}
       </div>
       {editProfile && <EditProfile editToggle={{editProfile,setEditProfile}}/>}   
     </div>

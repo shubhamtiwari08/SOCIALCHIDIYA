@@ -24,8 +24,7 @@ function Follow({data}) {
       <p>{firstName + " " + lastName}</p>
       <p style={{fontSize:"10px",color:"grey"}}>@{username}</p>
       </div> 
-      </div>
-      
+      </div>      
       <button onClick={()=>isLogged?followUser(_id):Navigate("/login")} className='button'>Follow +</button>
     </div>
   )

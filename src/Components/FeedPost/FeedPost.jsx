@@ -36,15 +36,15 @@ function FeedPost({feedData}) {
 
   const clipboard = new Clipboard('.copy-button', {
     text: function() {
-      return `https://socialchidiya.vercel.app//home/${_id}`;
+      return `https://socialchidiya.vercel.app/home/${_id}`;
       
     }
   });
 
   const thirdUser = allUsers.find(user => user.username === username)
-  const userId = thirdUser._id
-  const firstName = thirdUser.firstName
-  const lastName = thirdUser.lastName
+  const userId = thirdUser?._id
+  const firstName = thirdUser?.firstName
+  const lastName = thirdUser?.lastName
   const profileUrl = thirdUser?.avatarUrl
 
   const Navigate = useNavigate()
